@@ -1,0 +1,49 @@
+﻿@model IEnumerable<_04ViewModel.Models.tEmployee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="alert alert-info text-center">員工管理作業</h2>
+
+<p>
+    @Html.ActionLink("新增作業", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table-striped table-hover">
+    <tr>
+        
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.fName)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.fPhone)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.fDepId)
+        </th>
+        <th class="text-center">
+            管  理
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+       
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.fName)
+        </td>
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.fPhone)
+        </td>
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.fDepId)
+        </td>
+        <td class="text-center">
+            @Html.ActionLink("修改", "Edit", new { id=item.fEmpId }, new { @class = "btn btn-warning" }) 
+            @Html.ActionLink("詳細", "Details", new { id=item.fEmpId },new { @class = "btn btn-info" }) 
+            @Html.ActionLink("刪除", "Delete", new { id=item.fEmpId },new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

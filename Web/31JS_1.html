@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script>
+
+        ///////////////////////////
+
+        var z = prompt("請輸入您要找第幾個數:")
+
+        var n1 = 1, n2 = 1;
+        var r = 0;
+
+        if (z == 1 || z == 2)
+            r = 1;
+        else {
+            document.write(n1 + ", ");
+            for (var i = 3; i <= z; i++) {
+                r = n1 + n2;
+                n1 = n2;
+                document.write(n1 + ", ");
+                n2 = r;
+            }
+        }
+        document.write(r);
+        document.write("<br><h2>第" + z + "個數為" + r + " </h2 > ");
+
+    </script>
+
+    
+
+
+
+
+</body>
+</html>

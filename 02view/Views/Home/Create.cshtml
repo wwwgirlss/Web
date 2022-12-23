@@ -1,0 +1,54 @@
+﻿@model _02view.Models.NightMarket
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<form method="post" action="/Home/Create">
+    <p>
+        <label for="Id" class="control-label">夜市編號</label>
+        <input id="Id" type="text" class="form-control" name="Id" value="@ViewBag.Id" required ,readyonly/>
+    </p>
+    <p>
+        <label for="Id" class="control-label">夜市名稱</label>
+        <input id="Name" type="text" class="form-control" name="Name" value="@ViewBag.Id" required ,readyonly/>
+    </p>
+    <p>
+        <label for="Address" class="control-label">夜市地址</label>
+        <input id="Address" type="text" class="form-control" name="Address" value="@ViewBag.Id" required ,readyonly/>
+    </p>
+
+    <p>
+        <input id="Submit1" type="submit" value="送出" class="btn btn-warning" />
+    </p>
+
+</form>
+<hr />
+@*輸入的資料狀態會保留起來*@
+@*@using (Html.BeginForm())
+    {
+        <p>
+            @Html.LabelFor(model => model.Id)
+            @Html.TextBoxFor(model => model.Id, new { @class = "form-control", required = "required" })
+        </p>
+        <p>
+            @Html.LabelFor(model => model.Name)
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", required = "required" })
+        </p>
+        <p>
+            @Html.LabelFor(model => model.Address)
+            @Html.TextBoxFor(model => model.Address, new { @class = "form-control" , required = "required"})
+        </p>
+
+        <p>
+            <input id="Submit1" type="submit" value="送出" class="btn btn-warning" />
+        </p>
+
+
+    }*@
+
+
+@Html.Raw(@ViewBag.Result)
+

@@ -1,0 +1,72 @@
+﻿@model IEnumerable<_02view.Models.NightMarket>
+
+@{
+    ViewBag.Title = "各大夜市列表";
+}
+
+<h2>各大夜市列表</h2>
+
+<p>
+    @*ActionLink()的作用是產生一個超連結,是到一個有指定Action的超連結,下面有兩種寫法*@
+    @Html.ActionLink("新增一筆資料", "Create") |
+
+    <a href="/Home/Create">新增一筆資料</a>
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+            @*編號*@
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name) @*@Html.DisplayNameFor,到模型裡取出模型的名稱*@
+            @*夜市名稱*@
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+            @*地址*@
+        </th>
+        <th>
+            照片
+        </th>
+        <th>
+            位置
+        </th>
+        <th>
+            資料管理
+        </th>
+    </tr>
+    @*foreach是 list裡的迴圈*@
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Id
+            </td>
+            <td>
+                @item.Name
+                @*@Html.DisplayFor(modelItem => item.Name)*@
+            </td>
+            <td>
+                @item.Address
+                @*@Html.DisplayFor(modelItem => item.Address)*@
+            </td>
+            <th>
+             <img src="~/images/@(item.Id).jpg" width="200"/>
+            </th>
+            <td>
+                <a href="https://www.google.com.tw/maps/search/@item.Address" target="_blank" class="btn btn-primary">查看地圖</a>
+            </td>
+            <td>
+                @*@Html.ActionLink("編輯資料", "Edit", new { aaa = item.Id }) |*@
+
+                @*下面有兩種寫法,學習用@Html.ActionLink為主*@
+                @Html.ActionLink("詳細資料", "Display", new { id = item.Id }) |
+                <a href="/Home/Display/@item.Id">詳細資料</a>
+
+                @*@Html.ActionLink("刪除資料", "Delete", new { id = item.Id })*@
+            </td>
+        </tr>
+    }
+
+</table>

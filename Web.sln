@@ -1,0 +1,101 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32811.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{57A74A35-14B3-4D72-81EF-5AFC34CB4F29}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "前端作業一", "前端作業一", "{654F1802-478D-494C-9F48-2C6F18014533}"
+	ProjectSection(SolutionItems) = preProject
+		前端作業一_22李核渝.html = 前端作業一_22李核渝.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "my", "my", "{F3F8F501-D95A-44C3-996C-9AC43DF46E0E}"
+	ProjectSection(SolutionItems) = preProject
+		..\02各作業題目區\前端作業一\素材檔\banner1.jpg = ..\02各作業題目區\前端作業一\素材檔\banner1.jpg
+		..\02各作業題目區\前端作業一\素材檔\banner2.jpg = ..\02各作業題目區\前端作業一\素材檔\banner2.jpg
+		..\02各作業題目區\前端作業一\素材檔\bottom.jpg = ..\02各作業題目區\前端作業一\素材檔\bottom.jpg
+		..\02各作業題目區\前端作業一\素材檔\left.jpg = ..\02各作業題目區\前端作業一\素材檔\left.jpg
+		..\02各作業題目區\前端作業一\素材檔\right.jpg = ..\02各作業題目區\前端作業一\素材檔\right.jpg
+		..\02各作業題目區\前端作業一\素材檔\top.jpg = ..\02各作業題目區\前端作業一\素材檔\top.jpg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "music", "music", "{B67224C9-E433-46DB-8B87-87189E595365}"
+	ProjectSection(SolutionItems) = preProject
+		Web\music\airball.mp3 = Web\music\airball.mp3
+		Web\music\DEAMN - Save Me (Audio).mp3 = Web\music\DEAMN - Save Me (Audio).mp3
+		Web\music\Doja Cat - Say So (Lyrics) Why dont you say so.mp3 = Web\music\Doja Cat - Say So (Lyrics) Why dont you say so.mp3
+		Web\music\Elton John & Dua Lipa - Cold Heart (PNAU Remix).mp3 = Web\music\Elton John & Dua Lipa - Cold Heart (PNAU Remix).mp3
+		Web\music\elysees.mp3 = Web\music\elysees.mp3
+		Web\music\moon.mp3 = Web\music\moon.mp3
+		Web\music\nothing.mp3 = Web\music\nothing.mp3
+		Web\music\Surf Mesa-I love you baby.mp3 = Web\music\Surf Mesa-I love you baby.mp3
+		Web\music\travel.mp3 = Web\music\travel.mp3
+		Web\music\ZAYN, Zhavia Ward - A Whole New World.mp3 = Web\music\ZAYN, Zhavia Ward - A Whole New World.mp3
+		Web\music\周杰倫+蔡依林 - 給我一首歌的時間.mp3 = Web\music\周杰倫+蔡依林 - 給我一首歌的時間.mp3
+		Web\music\鄧紫棋 倒數.mp3 = Web\music\鄧紫棋 倒數.mp3
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp", "CSharp\CSharp.csproj", "{CBD423F1-F114-4C98-A883-71E22AF4439E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01Controller", "01Controller\01Controller.csproj", "{89D2679C-3B1D-460E-ADF3-4CC7BE6E3AD6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{9CA0F058-7756-40D5-8C5A-C7EB134A72D1}"
+	ProjectSection(SolutionItems) = preProject
+		01Controller\images\1.JPG = 01Controller\images\1.JPG
+		01Controller\images\2.JPG = 01Controller\images\2.JPG
+		01Controller\images\3.JPG = 01Controller\images\3.JPG
+		01Controller\images\4.JPG = 01Controller\images\4.JPG
+		01Controller\images\5.JPG = 01Controller\images\5.JPG
+		01Controller\images\6.JPG = 01Controller\images\6.JPG
+		01Controller\images\7.JPG = 01Controller\images\7.JPG
+		01Controller\images\8.JPG = 01Controller\images\8.JPG
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02view", "02view\02view.csproj", "{84C5F34A-6E05-4085-B73C-1C10AF4527D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03Model", "03Model\03Model.csproj", "{EBD56910-0DFC-4F56-AC87-5E21C3CDA297}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04ViewModel", "04ViewModel\04ViewModel.csproj", "{DC60DB78-DFF3-4E89-857B-0F6E7568D52E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57A74A35-14B3-4D72-81EF-5AFC34CB4F29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57A74A35-14B3-4D72-81EF-5AFC34CB4F29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57A74A35-14B3-4D72-81EF-5AFC34CB4F29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57A74A35-14B3-4D72-81EF-5AFC34CB4F29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBD423F1-F114-4C98-A883-71E22AF4439E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBD423F1-F114-4C98-A883-71E22AF4439E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBD423F1-F114-4C98-A883-71E22AF4439E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBD423F1-F114-4C98-A883-71E22AF4439E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89D2679C-3B1D-460E-ADF3-4CC7BE6E3AD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89D2679C-3B1D-460E-ADF3-4CC7BE6E3AD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89D2679C-3B1D-460E-ADF3-4CC7BE6E3AD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89D2679C-3B1D-460E-ADF3-4CC7BE6E3AD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84C5F34A-6E05-4085-B73C-1C10AF4527D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84C5F34A-6E05-4085-B73C-1C10AF4527D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84C5F34A-6E05-4085-B73C-1C10AF4527D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84C5F34A-6E05-4085-B73C-1C10AF4527D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBD56910-0DFC-4F56-AC87-5E21C3CDA297}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBD56910-0DFC-4F56-AC87-5E21C3CDA297}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBD56910-0DFC-4F56-AC87-5E21C3CDA297}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBD56910-0DFC-4F56-AC87-5E21C3CDA297}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC60DB78-DFF3-4E89-857B-0F6E7568D52E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC60DB78-DFF3-4E89-857B-0F6E7568D52E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC60DB78-DFF3-4E89-857B-0F6E7568D52E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC60DB78-DFF3-4E89-857B-0F6E7568D52E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F3F8F501-D95A-44C3-996C-9AC43DF46E0E} = {654F1802-478D-494C-9F48-2C6F18014533}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5885A133-EAB5-4E10-8D32-D263CD322C9E}
+	EndGlobalSection
+EndGlobal
