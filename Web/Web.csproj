@@ -127,6 +127,8 @@
     <Content Include="38HW2-H.html" />
     <Content Include="38HW2-T.html" />
     <Content Include="38HW2.html" />
+    <Content Include="39jQuery-First.html" />
+    <Content Include="40jQuery-DOM.html" />
     <Content Include="githubtest.html" />
     <Content Include="Htmltest1.html" />
     <Content Include="images\09image2.html" />
@@ -161,6 +163,11 @@
     <Content Include="PlayerJS022.js" />
     <Content Include="Playerstyle.css" />
     <Content Include="PlayerStyle022.css" />
+    <None Include="Scripts\jquery-3.6.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.6.1.js" />
+    <Content Include="Scripts\jquery-3.6.1.min.js" />
+    <Content Include="Scripts\jquery-3.6.1.slim.js" />
+    <Content Include="Scripts\jquery-3.6.1.slim.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -168,6 +175,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.6.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.6.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
