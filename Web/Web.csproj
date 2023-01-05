@@ -129,6 +129,8 @@
     <Content Include="38HW2.html" />
     <Content Include="39jQuery-First.html" />
     <Content Include="40jQuery-DOM.html" />
+    <Content Include="41jQuery_API.html" />
+    <Content Include="42jQuery_API2.html" />
     <Content Include="githubtest.html" />
     <Content Include="Htmltest1.html" />
     <Content Include="images\09image2.html" />

@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #table1 {
+            margin: auto;
+            border: 3px double;
+        }
+
+            #table1 > thead {
+                background-color: gray;
+                text-align: center;
+                color: white;
+            }
+
+            #table1 > tbody > tr:nth-child(2n+1) {
+                background-color: palegoldenrod;
+            }
+
+            #table1 > tbody > tr:hover {
+                background-color: violet;
+                font-size: 1.2rem;
+            }
+
+            #table1 td {
+                padding: 5px;
+                border-bottom: 1px solid;
+            }
+    </style>
+</head>
+<body>
+    <table id="table1">
+        <thead>
+            <tr>
+                <td>
+                    seq
+                </td>
+                <td>
+                    行政區
+                </td>
+                <td>
+                    宗教團體名稱
+                </td>
+                <td>
+                    地址
+                </td>
+                <td>
+                    電話
+                </td>
+                <td>
+                    管理
+                </td>
+            </tr>
+
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script src="Scripts/jquery-3.6.1.min.js"></script>
+    <script>
+        //要使用open data資料介皆必須使用API
+        //表單用post,網址用get
+
+        $.ajax({
+            type: 'get',
+            url: 'https://soa.tainan.gov.tw/Api/Service/Get/4dad44fa-35d7-4d50-b3b6-1723c6bc1032',
+            success: function (data) {
+                //alert("資料取得成功");//成功的話會有視窗顯示
+                console.log(data);
+                var row = "";
+                for (var item of data) {
+                    row = `<tr><td>${item.seq}</td> <td>${item.行政區}</td> <td>${item.宗教團體名稱}</td> <td>${item.地址}</td><td>${item.電話}</td><td><input id="Button1" type="button" value="刪除" /></td></tr>`
+                    $('#table1>tbody').append(row);
+                }
+
+                //document.write(`<div>${item.ID}${item.Name}${item.Tel}${item.Address} </div>`)
+
+            }
+
+        });
+
+    </script>
+
+
+
+
+</body>
+</html>

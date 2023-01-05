@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #table1 {
+            margin: auto;
+            border: 3px double;
+        }
+
+            #table1 > thead {
+                background-color: gray;
+                text-align: center;
+                color: white;
+            }
+
+            #table1 > tbody > tr:nth-child(2n+1) {
+                background-color:palegoldenrod;
+            }
+
+            #table1 > tbody > tr:hover {
+                background-color: violet; 
+                font-size: 1.2rem;
+            }
+
+            #table1 td {
+                padding: 5px;
+                border-bottom: 1px solid;
+            }
+    </style>
+</head>
+<body>
+    <table id="table1">
+        <thead>
+            <tr>
+                <td>
+                    ID
+                </td>
+                <td>
+                    名稱
+                </td>
+                <td>
+                    電話
+                </td>
+                <td>
+                    地址
+                </td>
+                <td>
+                    管理
+                </td>
+            </tr>
+           
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script src="Scripts/jquery-3.6.1.min.js"></script>
+    <script>
+        //要使用open data資料介皆必須使用API
+        //表單用post,網址用get
+
+        $.ajax({
+            type: 'get',
+            url: 'https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvAttractions.aspx',
+            success: function (data) {
+                //alert("資料取得成功");//成功的話會有視窗顯示
+                console.log(data);
+                var row = "";
+                for (var item of data) {
+                    row = `<tr><td>${item.ID}</td> <td>${item.Name}</td> <td>${item.Tel}</td> <td>${item.Address}</td><td><input id="Button1" type="button" value="刪除" /></td></tr>`
+                    $('#table1>tbody').append(row);
+                }
+
+                    //document.write(`<div>${item.ID}${item.Name}${item.Tel}${item.Address} </div>`)
+
+            }
+
+        });
+
+    </script>
+
+
+
+
+</body>
+</html>
