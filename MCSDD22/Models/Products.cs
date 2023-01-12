@@ -26,7 +26,8 @@ namespace MCSDD22.Models
         [Required(ErrorMessage = "請上傳商品照片")]
         public byte[] PhotoFile { get; set; }
 
-        [StringLength(20)]
+        [DisplayName("圖片類型")]
+        [StringLength(10)]
         public string ImageMimeType { get; set; }
 
         [DisplayName("商品單價")]

@@ -46,8 +46,8 @@ namespace MCSDD22.Models
         [DisplayName("密碼")]
         [Required(ErrorMessage = "請填寫密碼")]
         [DataType(DataType.Password)]//會跑黑點看不到密碼
-        [MinLength(8, ErrorMessage = "密碼最少8碼")]
-        [MaxLength(20, ErrorMessage = "密碼最多20碼")]
+        //[MinLength(8, ErrorMessage = "密碼最少8碼")]
+        //[MaxLength(20, ErrorMessage = "密碼最多20碼")]
 
         //[StringLength(20)]
         public string Password

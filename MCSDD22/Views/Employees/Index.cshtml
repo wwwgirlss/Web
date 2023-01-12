@@ -1,0 +1,54 @@
+﻿@model IEnumerable<MCSDD22.Models.Employees>
+
+@{
+    ViewBag.Title = "員工管理作業";
+}
+
+<h2 class="badge-info">員工管理作業</h2>
+
+<p>
+    @Html.ActionLink("員工管理", "Create")
+</p>
+
+    <table class="table table-striped table-hover">
+        <tr>
+            <th class="text-center" style="width:50%">
+                @Html.DisplayNameFor(model => model.EmployeeName)
+            </th>
+            <th style="width:70%">
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Account)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td  class="text-center">
+                    @Html.DisplayFor(modelItem => item.EmployeeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Account)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td  class="text-center" style="width:150px" >
+                    @Html.ActionLink("修改", "Edit", new { id = item.EmployeeID }, new { @class = "btn btn-info" }) 
+                    @*@Html.ActionLink("詳細", "Details", new { id = item.EmployeeID }, new { @class = "btn btn-primary" }) |*@
+                    @Html.ActionLink("刪除", "Delete", new { id = item.EmployeeID }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+
