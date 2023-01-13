@@ -76,12 +76,16 @@
     <Content Include="07BS_GridSystemAlignment.html" />
     <Content Include="08BS_GridSystemOrder.html" />
     <Content Include="09BS_Utilities_Display.html" />
+    <Content Include="10BS_Flex.html" />
+    <Content Include="11BS_Text.html" />
+    <Content Include="12BS_table.html" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\MyStyle.css" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
