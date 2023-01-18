@@ -55,7 +55,7 @@
             </th>*@
         <th></th>
     </tr>
-
+    @*商品庫存中顯示紅綠燈*@
     @foreach (var item in Model)
     {
         if (item.UnitsInStock < item.ReorderLevel && item.UnitsOnOrder == 0)
@@ -100,7 +100,7 @@
                 }
                 else
                 {
-                    <span class="glyphicon glyphicon-ok text-success" title="上架中" data-toggle="tooltip" data-placement="right"></span>
+                    <span class="glyphicon glyphicon-ok text-success" title="上架中" data-toggle="tooltip" data-placement="left"></span>
                 }
             </td>
             @*<td>

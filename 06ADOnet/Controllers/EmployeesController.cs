@@ -30,26 +30,32 @@ namespace _06ADOnet.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Employees employees = db.Employees.Find(id);
+
+           
+
             if (employees == null)
             {
                 return HttpNotFound();
             }
             return PartialView(employees);
         }
+
         public FileResult GetEmployeePhoto(int? id)
         {
-            //if (id == null) {
+            //if (id == null)
+            //{
             //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             //}
             Employees employees = db.Employees.Find(id);
 
             byte[] photo = employees.Photo.Skip(78).ToArray();
-            
-            //MemoryStream ms=new MemoryStream(photo);
 
-            return File(photo,"image/bmp");
+            //MemoryStream ms =new MemoryStream(photo);
 
-    }
+            return File(photo, "image/bmp");
+
+        }
+
 
         // GET: Employees/Create
         public ActionResult Create()

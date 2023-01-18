@@ -1,16 +1,16 @@
 ﻿@model IEnumerable<_06ADOnet.Models.Employees>
 
 @{
-    ViewBag.Title = "員工資料";
+    ViewBag.Title = "員工資料管理";
 }
 
-<h2 >員工資料管理</h2>
+<h2>員工資料管理</h2>
 
 <p>
-    @Html.ActionLink("新增員工資料", "Create", new { @class = "btn btn - primary" })
+    @Html.ActionLink("新增員工資料", "Create")
 </p>
-<table class="table">
-    <tr>
+<table class="table table-hover ">
+    <tr class="bg-primary">
         <th>
             @Html.DisplayNameFor(model => model.Photo)
         </th>
@@ -158,7 +158,7 @@
 @section scripts{
     <script>
         function getDetailData(evt) {
-            $('#ShowDetailModal .modal-body').load("/Employees/Details/" + evt.target.id);
+            $('#ShowDetailModal .modal-body').load("/Employees/_Details/" + evt.target.id);
         }
     </script>
 }
