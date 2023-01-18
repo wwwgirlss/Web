@@ -64,6 +64,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCSDD22", "MCSDD22\MCSDD22.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05CustomValidation", "05CustomValidation\05CustomValidation.csproj", "{4B4A8AC5-4E97-457F-A6C6-4BEBDC2EBC8B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06ADOnet", "06ADOnet\06ADOnet.csproj", "{77BD09D0-EDF0-4F11-89AE-97E2CD81526A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -106,6 +108,10 @@ Global
 		{4B4A8AC5-4E97-457F-A6C6-4BEBDC2EBC8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B4A8AC5-4E97-457F-A6C6-4BEBDC2EBC8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B4A8AC5-4E97-457F-A6C6-4BEBDC2EBC8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77BD09D0-EDF0-4F11-89AE-97E2CD81526A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77BD09D0-EDF0-4F11-89AE-97E2CD81526A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77BD09D0-EDF0-4F11-89AE-97E2CD81526A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77BD09D0-EDF0-4F11-89AE-97E2CD81526A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
