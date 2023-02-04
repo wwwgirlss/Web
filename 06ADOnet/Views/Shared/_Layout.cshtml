@@ -27,11 +27,17 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("客戶資料管理","Index", "Customers")</li>
-                    <li>@Html.ActionLink("員工資料管理", "Index", "Employees")</li>
-                    <li>@Html.ActionLink("產品資料管理", "Index", "Products")</li>
-                    <li>@Html.ActionLink("產品類別管理", "Index", "Categories")</li>
-                    <li>@Html.ActionLink("送貨方式管理", "Index", "Shippers")</li>
+                    @if (Session["emp"] != null)
+                    {
+                        <li>@Html.ActionLink("客戶資料管理", "Index", "Customers")</li>
+                        <li>@Html.ActionLink("員工資料管理", "Index", "Employees")</li>
+                        <li>@Html.ActionLink("產品資料管理", "Index", "Products")</li>
+                        <li>@Html.ActionLink("產品類別管理", "Index", "Categories")</li>
+                        <li>@Html.ActionLink("送貨方式管理", "Index", "Shippers")</li>
+                        <li>@Html.ActionLink("登出", "Logout", "Login", null, new { @class = "btn btn-default" })</li>
+                                          @*("登出"--按鈕名稱, "Logout"--Action名稱, "Login"--controller)*@
+                    }
+
                 </ul>
             </div>
         </div>
@@ -48,5 +54,6 @@
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
   @RenderSection("scripts",false)
+
 </body>
 </html>
