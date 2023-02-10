@@ -11,3 +11,10 @@
     /*border-color: #ff6a00;*/
     border-bottom: 3px double #006d0e;
 }
+
+.breadcrumb-item + .breadcrumb-item::before {
+    float: left;
+    padding-right: 0.5rem;
+    color: #ff0000;
+    content: "/";
+}

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<_06ADOnet.Models.OrderDetails>
+@{ 
+    int i = 0;
+
+    decimal total = 0;
+    }
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                SN
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.Categories.CategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discount)
+            </th>
+
+
+            <th>小計</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        total += item.UnitPrice * item.Quantity * Convert.ToDecimal((1 - item.Discount));
+        <tr>
+            <td>
+                @(++i)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Products.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Products.Categories.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @(item.Discount*100)% off
+            </td>
+
+            <td>
+
+                @(item.UnitPrice*item.Quantity * Convert.ToDecimal((1 - item.Discount)))
+            </td>
+        </tr>
+    }
+    <tfoot>
+        <tr>
+            <th colspan="6" class="text-right">總計: @total  </th>
+        </tr>
+    </tfoot>
+</table>
+@Html.ActionLink("回訂單列表","Index")

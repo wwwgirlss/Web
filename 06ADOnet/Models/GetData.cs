@@ -10,12 +10,79 @@ namespace _06ADOnet.Models
 {
     public class GetData
     {
-        //1.建立資料連線物件
-        static SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["NorthwindConnection"].ConnectionString); //ConfigurationManager--(存取name[NorthwindConnection]
-        //2.建立SQL命令物件--通用性的物件法文翻成俄文
-        SqlCommand cmd = new SqlCommand("", conn);/*要塞值先給空值""*/
+        //1.建立資料庫連線物件
+        static SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["NorthwindConnection"].ConnectionString);
+        //2.建立SQL命令物件
+        SqlCommand cmd = new SqlCommand("", conn);
         //3.建立資料讀取物件
         SqlDataReader rd;
+
+
+        //
+        SqlDataAdapter adp = new SqlDataAdapter("", conn);
+
+
+        DataSet ds = new DataSet();
+        DataTable dt = new DataTable();
+
+        public DataTable TableQuery(string sql)
+        {
+            adp.SelectCommand.CommandText = sql;  //指定 Select Command
+            adp.Fill(ds);  //把取到的Table填入DataSet
+
+            dt = ds.Tables[0];
+
+            return dt;
+        }
+
+        public DataTable TableQuery(string sql, List<SqlParameter> para)
+        {
+            adp.SelectCommand.CommandText = sql;  //指定 Select Command
+
+            foreach (SqlParameter p in para)
+            {
+                adp.SelectCommand.Parameters.Add(p);
+            }
+
+            adp.Fill(ds);  //把取到的Table填入DataSet
+
+            dt = ds.Tables[0];
+
+            return dt;
+        }
+
+
+        public DataTable TableQueryBySP(string sql)
+        {
+            adp.SelectCommand.CommandText = sql;  //指定 Select Command
+            adp.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+            adp.Fill(ds);  //把取到的Table填入DataSet
+
+            dt = ds.Tables[0];
+
+            return dt;
+        }
+
+        public DataTable TableQueryBySP(string sql, List<SqlParameter> para)
+        {
+            adp.SelectCommand.CommandText = sql;  //指定 Select Command
+            adp.SelectCommand.CommandType = CommandType.StoredProcedure;   
+
+            foreach (SqlParameter p in para)
+            {
+                adp.SelectCommand.Parameters.Add(p);
+            }
+
+            adp.Fill(ds);  //把取到的Table填入DataSet
+
+            if (ds.Tables.Count == 0)
+                return dt;
+
+            dt = ds.Tables[0];
+
+            return dt;
+        }
 
         public SqlDataReader LoginQuery(string sql, List<SqlParameter> para)
         {
@@ -24,33 +91,25 @@ namespace _06ADOnet.Models
             foreach (SqlParameter p in para)
             {
                 cmd.Parameters.Add(p);
-
             }
-
+            
             conn.Open();
             try
             {
-
-                rd = cmd.ExecuteReader(CommandBehavior.CloseConnection);//rd會去資料庫取資料到dataset
+                rd = cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 rd.Read();
-                //int i = 0;
+                //int i= 0;
                 //i = 1 / i;
-
             }
             catch
             {
-                //return rd;
                 conn.Close();
             }
 
-            //Session["emp"] = rd[0]; //[0]讀第一筆資料
-            //conn.Close();//有open就要close很重要經常忘記沒關掉使用者端會佔據Dataset記憶體
-            //return RedirectToAction("Index", "Customers");
-
-
             return rd;
-
+          
         }
+       
 
     }
 }

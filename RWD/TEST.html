@@ -1,0 +1,107 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+    <!--<link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/MyStyle.css" rel="stylesheet" />-->
+    <link rel="stylesheet" href="styles.css">
+    <link href="Content/styles.css" rel="stylesheet" />
+    <title>testpro_OnlineToss</title>
+    <style>
+        #container {
+            display: inline-block;
+        }
+        
+    </style>
+
+</head>
+<body>
+    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active c-item">
+                <img src="https://www.longcheng.org.tw/upload_files/web/uploadfile/2022120218/original/221202183541816960.png" class="d-block w-100 c-img" alt="Slide 1">
+                <div class="carousel-caption top-0 mt-4">
+                    <p class="mt-5 fs-3 text-uppercase">Discover the TEMPLE  </p>
+                    <h3 class="display-1 fw-bolder text-capitalize">WǔJiǎ LongChengGong</h3>
+                    <button class="btn btn-primary px-4 py-2 fs-5 mt-5">點我看 歷史介紹</button>
+                </div>
+            </div>
+            <div class="carousel-item c-item">
+                <img src="https://www.longcheng.org.tw/upload_files/web/uploadfile/2022112115/original/22112115570119754.jpg" class="d-block w-100 c-img" alt="Slide 2">
+                <div class="carousel-caption top-0 mt-4">
+                    <p class="text-uppercase fs-3 mt-5">Online Draw Lots</p>
+                    <p class="display-1 fw-bolder text-capitalize">靈籤解籤</p>
+                    <button class="btn btn-info px-4 py-2 fs-5 mt-5" data-bs-toggle="modal"
+                            data-bs-target="#booking-modal">
+                        線上求籤
+                    </button>
+                </div>
+            </div>
+            <div class="carousel-item c-item">
+                <img src="https://www.longcheng.org.tw/upload_files/web/uploadfile/2022112413/original/221124133158828258.jpg" class="d-block w-100 c-img" alt="Slide 3">
+                <div class="carousel-caption top-0 mt-4">
+                    <p class="text-uppercase fs-3 mt-5">Destination activities</p>
+                    <p class="display-1 fw-bolder text-capitalize">點燈祈福</p>
+                    <button class="btn btn-warning px-4 py-2 fs-5 mt-5" data-bs-toggle="modal"
+                            data-bs-target="#booking-modal">
+                        點燈指南
+                    </button>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <form>
+        <div id="container"class="container">
+
+            <!--影片區-->
+            <div class="col">
+                <div class="row-cols-md-3 ">
+                    <div class="embed-responsive embed-responsive-21by9 col-lg-3" style="padding: 10px ">
+
+                        <!--<iframe class="embed-responsive-item" src="https://www.youtube.com/watch?v=1cpamfgAmeg" allowfullscreen></iframe>-->
+                        <iframe width="560" height="315" class="rounded" src="https://www.youtube.com/embed/1cpamfgAmeg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <!--介紹區-->
+                <div class="row-cols-md-3 ">
+                    <div class="card bg-warning " style="width: 18rem;">
+                        <img src="https://longcheng.org.tw/upload_files/web/uploadfile/2022112414/original/221124142213334905.png" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">三境主</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-light">由來介紹</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+    <script src="Scripts/jquery-3.6.1.min.js"></script>
+    <script src="Scripts/bootstrap.bundle.min.js"></script>
+</body>
+</html>
