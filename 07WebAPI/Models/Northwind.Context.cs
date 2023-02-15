@@ -18,7 +18,7 @@ namespace _07WebAPI.Models
         public NorthwindEntities()
             : base("name=NorthwindEntities")
         {
-
+            this.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

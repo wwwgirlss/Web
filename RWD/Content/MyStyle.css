@@ -1,6 +1,6 @@
 ﻿.table-green {
-    color:#ff0000;
-    background-color:#418e4b;
+    color:#006d0e;
+    background-color:#86cb69;
 }
 
 
@@ -9,12 +9,25 @@
 .table-danger thead th,
 .table-danger tbody + tbody {
     /*border-color: #ff6a00;*/
-    border-bottom: 3px double #006d0e;
+    border-bottom: 3px double #ff6a00;
 }
 
+
 .breadcrumb-item + .breadcrumb-item::before {
-    float: left;
-    padding-right: 0.5rem;
-    color: #ff0000;
-    content: "/";
+   
+    color: red;
+    content: ">";
+}
+
+
+.jumbotron {
+    background-image: url('../photo/00.jpg');
+    background-repeat:round;
+    
+}
+
+.txtFont {
+    color: white;
+    text-shadow:2px 2px 1px black;
+    font-family:微軟正黑體;
 }

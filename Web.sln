@@ -70,6 +70,27 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineToss", "OnlineToss\On
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07WebAPI", "07WebAPI\07WebAPI.csproj", "{D6B87CF5-7FC9-4AE4-A50E-A2FEB938FD1F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "photo", "photo", "{CB226086-639C-4D1B-95F2-DB8E89A054CC}"
+	ProjectSection(SolutionItems) = preProject
+		RWD\photo\00.jpg = RWD\photo\00.jpg
+		RWD\photo\01.jpg = RWD\photo\01.jpg
+		RWD\photo\02.jpg = RWD\photo\02.jpg
+		RWD\photo\03.jpg = RWD\photo\03.jpg
+		RWD\photo\04.jpg = RWD\photo\04.jpg
+		RWD\photo\05.jpg = RWD\photo\05.jpg
+		RWD\photo\06.jpg = RWD\photo\06.jpg
+		RWD\photo\07.jpg = RWD\photo\07.jpg
+		RWD\photo\08.jpg = RWD\photo\08.jpg
+		RWD\photo\11.jpg = RWD\photo\11.jpg
+		RWD\photo\12.jpg = RWD\photo\12.jpg
+		RWD\photo\13.jpg = RWD\photo\13.jpg
+		RWD\photo\14.jpg = RWD\photo\14.jpg
+		RWD\photo\15.jpg = RWD\photo\15.jpg
+		RWD\photo\16.jpg = RWD\photo\16.jpg
+		RWD\photo\17.jpg = RWD\photo\17.jpg
+		RWD\photo\18.jpg = RWD\photo\18.jpg
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
