@@ -1,0 +1,93 @@
+﻿@model OnlineToss.Models.Employees
+
+@{
+    ViewBag.Title = "員工詳細資料";
+}
+
+<h2>員工詳細資料</h2>
+
+<div>
+    @*<h3>@Html.DisplayNameFor(model => model.EmpID) @Html.DisplayFor(model => model.EmpID)</h3>*@
+    <hr />
+    <div class="panel panel-info">
+
+        <div class="panel-heading">
+            <h3 class="text-center">@Html.DisplayFor(model => model.EmpID) | @Html.DisplayFor(model => model.EmpName) </h3>
+        </div>
+        <div class="panel-body">
+            @*<dt>
+            @Html.DisplayNameFor(model => model.EmpID):@Html.DisplayFor(model => model.EmpID)
+        </dt>*@
+            <dt>
+                @Html.DisplayNameFor(model => model.EmpName):@Html.DisplayFor(model => model.EmpName)
+            </dt>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Gender)     @Html.DisplayFor(model => model.Gender)
+            </dt>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Phone):@Html.DisplayFor(model => model.Phone)
+            </dt>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Address):@Html.DisplayFor(model => model.Address)
+            </dt>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Birthday):@Html.DisplayFor(model => model.Birthday)
+            </dt>
+
+            <hr />
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email):@Html.DisplayFor(model => model.Email)
+            </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Account):@Html.DisplayFor(model => model.Account)
+            </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Password):@Html.DisplayFor(model => model.Password)
+            </dt>
+
+
+        </div>
+           
+
+
+            <div class="panel-footer">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Salary):@Html.DisplayFor(model => model.Salary)
+                </dt>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Bdate):@Html.DisplayFor(model => model.Bdate)
+                </dt>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Notes):@Html.DisplayFor(model => model.Notes)
+                </dt>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Manager):@Html.DisplayFor(model => model.Manager)
+                </dt>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.EmpID }) |*@
+    @Html.ActionLink("回主選單", "Index")
+</p>

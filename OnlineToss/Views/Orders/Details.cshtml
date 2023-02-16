@@ -1,0 +1,82 @@
+﻿@model OnlineToss.Models.Orders
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Orders</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipAdd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipAdd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employees.EmpName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employees.EmpName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Members.MemName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Members.MemName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentType.PayName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentType.PayName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShippingMethod.ShipName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShippingMethod.ShipName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OrderID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
