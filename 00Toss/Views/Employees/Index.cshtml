@@ -1,0 +1,99 @@
+﻿@model IEnumerable<_00Toss.Models.Employees>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Birthday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Notes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Manager)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Account)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmpName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Birthday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Salary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Notes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Manager)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Account)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmpID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EmpID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmpID })
+        </td>
+    </tr>
+}
+
+</table>

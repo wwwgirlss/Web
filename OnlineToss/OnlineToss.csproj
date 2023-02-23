@@ -97,6 +97,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\dbEmployee.mdf" />
+    <Content Include="App_Data\dbEmployee_log.ldf">
+      <DependentUpon>dbEmployee.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -104,17 +108,39 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\styles.css" />
+    <Content Include="Content\TossStyleSheet.css" />
     <Content Include="Global.asax" />
     <Content Include="Models\OnlineTossModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>OnlineTossModel.Context.cs</LastGenOutput>
       <DependentUpon>OnlineTossModel.edmx</DependentUpon>
+      <LastGenOutput>OnlineTossModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\OnlineTossModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>OnlineTossModel.edmx</DependentUpon>
       <LastGenOutput>OnlineTossModel.cs</LastGenOutput>
     </Content>
+    <Content Include="photo\logo2.png" />
+    <Content Include="photo\logo2_110.png" />
+    <Content Include="photo\logo3.png" />
+    <Content Include="photo\logo3_110.png" />
+    <Content Include="photo\picwish %282%29.png" />
+    <Content Include="photo\picwish.png" />
+    <Content Include="photo\picwish120.png" />
+    <Content Include="photo\toss.png" />
+    <Content Include="photo\tosshands.png" />
+    <Content Include="photo\tosshands_1.png" />
+    <Content Include="photo\tosshands_2.png" />
+    <Content Include="photo\TOSSLOGO%281%29.png" />
+    <Content Include="photo\TOSSLOGO%282%29.png" />
+    <Content Include="photo\TOSSLOGO%282%29120.png" />
+    <Content Include="photo\TOSSLOGO%283%29.png" />
+    <Content Include="photo\TOSSLOGO%283%29120.png" />
+    <Content Include="photo\TOSSLOGO.png" />
+    <Content Include="photo\TOSSLOGO150.png" />
+    <Content Include="photo\toss_remove.png" />
+    <Content Include="photo\toss_remove50.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -138,6 +164,13 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <EntityDeploy Include="Models\OnlineTossModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OnlineTossModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\OnlineTossModel.edmx.diagram">
+      <DependentUpon>OnlineTossModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -214,6 +247,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="MyOnlineToss.html" />
     <Content Include="Web.config" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
@@ -248,14 +282,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BornTimesController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\PaymentTypesController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ShippingMethodsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BornTimes.cs">
+      <DependentUpon>OnlineTossModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Categories.cs">
       <DependentUpon>OnlineTossModel.tt</DependentUpon>
@@ -303,21 +342,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <EntityDeploy Include="Models\OnlineTossModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>OnlineTossModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\OnlineTossModel.edmx.diagram">
-      <DependentUpon>OnlineTossModel.edmx</DependentUpon>
-    </Content>
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Members\Create.cshtml" />
-    <Content Include="Views\Members\Delete.cshtml" />
-    <Content Include="Views\Members\Details.cshtml" />
-    <Content Include="Views\Members\Edit.cshtml" />
-    <Content Include="Views\Members\Index.cshtml" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
     <Content Include="Views\Orders\Create.cshtml" />
@@ -325,6 +352,21 @@
     <Content Include="Views\Orders\Details.cshtml" />
     <Content Include="Views\Orders\Edit.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\PaymentTypes\Create.cshtml" />
+    <Content Include="Views\PaymentTypes\Delete.cshtml" />
+    <Content Include="Views\PaymentTypes\Details.cshtml" />
+    <Content Include="Views\PaymentTypes\Edit.cshtml" />
+    <Content Include="Views\PaymentTypes\Index.cshtml" />
+    <Content Include="Views\BornTimes\Create.cshtml" />
+    <Content Include="Views\BornTimes\Delete.cshtml" />
+    <Content Include="Views\BornTimes\Details.cshtml" />
+    <Content Include="Views\BornTimes\Edit.cshtml" />
+    <Content Include="Views\BornTimes\Index.cshtml" />
+    <Content Include="Views\Members\Create.cshtml" />
+    <Content Include="Views\Members\Delete.cshtml" />
+    <Content Include="Views\Members\Details.cshtml" />
+    <Content Include="Views\Members\Edit.cshtml" />
+    <Content Include="Views\Members\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -332,9 +374,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

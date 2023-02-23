@@ -1,0 +1,26 @@
+﻿.c-item {
+    height: 520px;
+}
+
+.c-img {
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+    box-shadow: 5px 10px ;
+}
+
+body {
+    /*display: flex;*/
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(#FF7575, #F0F0F0,#FF2D2D);
+    font-family: fantasy,LiHei Pro
+}
+
+#LOGO {
+    height: 70px;
+    width: 70px;
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+}

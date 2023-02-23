@@ -1,0 +1,33 @@
+﻿@model IEnumerable<OnlineToss.Models.BornTimes>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BornTimeName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BornTimeName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BornTimeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BornTimeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BornTimeID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -21,5 +21,6 @@ namespace OnlineToss.Models
         public string Explain { get; set; }
         public string Description { get; set; }
         public byte[] TPhoto { get; set; }
+        public string PhotoPath { get; set; }
     }
 }

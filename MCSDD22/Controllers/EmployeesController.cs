@@ -10,6 +10,7 @@ using MCSDD22.Models;
 
 namespace MCSDD22.Controllers
 {
+    [LoginCheck]
     public class EmployeesController : Controller
     {
         private MCSDD22Context db = new MCSDD22Context();

@@ -25,6 +25,7 @@ namespace OnlineToss.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<BornTimes> BornTimes { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<Employees> Employees { get; set; }
         public virtual DbSet<Members> Members { get; set; }

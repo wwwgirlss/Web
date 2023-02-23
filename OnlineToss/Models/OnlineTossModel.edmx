@@ -5,6 +5,13 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="testpro2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BornTimes">
+          <Key>
+            <PropertyRef Name="BornTimeID" />
+          </Key>
+          <Property Name="BornTimeID" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="BornTimeName" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
         <EntityType Name="Categories">
           <Key>
             <PropertyRef Name="CaID" />
@@ -43,6 +50,7 @@
           <Property Name="Email" Type="nvarchar" MaxLength="100" />
           <Property Name="Account" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Password" Type="varchar(max)" Nullable="false" />
+          <Property Name="BornTimeID" Type="char" MaxLength="2" />
         </EntityType>
         <EntityType Name="OrderDetails">
           <Key>
@@ -108,7 +116,20 @@
           <Property Name="Explain" Type="nvarchar(max)" />
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="TPhoto" Type="image" />
+          <Property Name="PhotoPath" Type="nvarchar(max)" />
         </EntityType>
+        <Association Name="FK_Members_BornTimes">
+          <End Role="BornTimes" Type="Self.BornTimes" Multiplicity="0..1" />
+          <End Role="Members" Type="Self.Members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BornTimes">
+              <PropertyRef Name="BornTimeID" />
+            </Principal>
+            <Dependent Role="Members">
+              <PropertyRef Name="BornTimeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_OrderDetails_Orders">
           <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
           <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
@@ -194,6 +215,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="testpro2ModelStoreContainer">
+          <EntitySet Name="BornTimes" EntityType="Self.BornTimes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
@@ -203,6 +225,10 @@
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ShippingMethod" EntityType="Self.ShippingMethod" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Toss" EntityType="Self.Toss" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Members_BornTimes" Association="Self.FK_Members_BornTimes">
+            <End Role="BornTimes" EntitySet="BornTimes" />
+            <End Role="Members" EntitySet="Members" />
+          </AssociationSet>
           <AssociationSet Name="FK_OrderDetails_Orders" Association="Self.FK_OrderDetails_Orders">
             <End Role="Orders" EntitySet="Orders" />
             <End Role="OrderDetails" EntitySet="OrderDetails" />
@@ -237,6 +263,14 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="testpro2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BornTimes">
+          <Key>
+            <PropertyRef Name="BornTimeID" />
+          </Key>
+          <Property Name="BornTimeID" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="BornTimeName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Members" Relationship="Self.FK_Members_BornTimes" FromRole="BornTimes" ToRole="Members" />
+        </EntityType>
         <EntityType Name="Categories">
           <Key>
             <PropertyRef Name="CaID" />
@@ -277,6 +311,8 @@
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Account" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BornTimeID" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="BornTimes" Relationship="Self.FK_Members_BornTimes" FromRole="Members" ToRole="BornTimes" />
           <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Members" FromRole="Members" ToRole="Orders" />
         </EntityType>
         <EntityType Name="OrderDetails">
@@ -354,7 +390,20 @@
           <Property Name="Explain" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TPhoto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="PhotoPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
+        <Association Name="FK_Members_BornTimes">
+          <End Role="BornTimes" Type="Self.BornTimes" Multiplicity="0..1" />
+          <End Role="Members" Type="Self.Members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BornTimes">
+              <PropertyRef Name="BornTimeID" />
+            </Principal>
+            <Dependent Role="Members">
+              <PropertyRef Name="BornTimeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Products_Categories">
           <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
           <End Role="Products" Type="Self.Products" Multiplicity="*" />
@@ -439,7 +488,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="testpro2Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="testpro2Entities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BornTimes" EntityType="Self.BornTimes" />
           <EntitySet Name="Categories" EntityType="Self.Categories" />
           <EntitySet Name="Employees" EntityType="Self.Employees" />
           <EntitySet Name="Members" EntityType="Self.Members" />
@@ -449,6 +499,10 @@
           <EntitySet Name="Products" EntityType="Self.Products" />
           <EntitySet Name="ShippingMethod" EntityType="Self.ShippingMethod" />
           <EntitySet Name="Toss" EntityType="Self.Toss" />
+          <AssociationSet Name="FK_Members_BornTimes" Association="Self.FK_Members_BornTimes">
+            <End Role="BornTimes" EntitySet="BornTimes" />
+            <End Role="Members" EntitySet="Members" />
+          </AssociationSet>
           <AssociationSet Name="FK_Products_Categories" Association="Self.FK_Products_Categories">
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Products" EntitySet="Products" />
@@ -483,7 +537,15 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="testpro2ModelStoreContainer" CdmEntityContainer="testpro2Entities">
+        <EntityContainerMapping StorageEntityContainer="testpro2ModelStoreContainer" CdmEntityContainer="testpro2Entities2">
+          <EntitySetMapping Name="BornTimes">
+            <EntityTypeMapping TypeName="testpro2Model.BornTimes">
+              <MappingFragment StoreEntitySet="BornTimes">
+                <ScalarProperty Name="BornTimeID" ColumnName="BornTimeID" />
+                <ScalarProperty Name="BornTimeName" ColumnName="BornTimeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Categories">
             <EntityTypeMapping TypeName="testpro2Model.Categories">
               <MappingFragment StoreEntitySet="Categories">
@@ -523,6 +585,7 @@
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Account" ColumnName="Account" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="BornTimeID" ColumnName="BornTimeID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -593,6 +656,7 @@
                 <ScalarProperty Name="Explain" ColumnName="Explain" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="TPhoto" ColumnName="TPhoto" />
+                <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

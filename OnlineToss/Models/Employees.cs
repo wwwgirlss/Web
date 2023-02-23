@@ -11,9 +11,7 @@ namespace OnlineToss.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Employees
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,48 +19,19 @@ namespace OnlineToss.Models
         {
             this.Orders = new HashSet<Orders>();
         }
-
-        [DisplayName(" 員工編號 ")]
-        [Required(ErrorMessage = "此為必填項目")]
+    
         public string EmpID { get; set; }
-        
-        [DisplayName(" 姓  名 ")]
-        [Required(ErrorMessage = "此為必填項目")]
         public string EmpName { get; set; }
-        [DisplayName("性別")]
-        [Required(ErrorMessage = "此為必填項目")]
         public bool Gender { get; set; }
-        [DisplayName("電話")]
-        [Required(ErrorMessage = "此為必填項目")]
         public string Phone { get; set; }
-        [DisplayName("地址")]
-        [Required(ErrorMessage = "此為必填項目")]
         public string Address { get; set; }
-        [DisplayName("生日")]
-        [Required(ErrorMessage = "此為必填項目")]
         public System.DateTime Birthday { get; set; }
-        [DisplayName("薪資")]
         public Nullable<decimal> Salary { get; set; }
-
-        [DisplayName("雇用日")]
-        [Required(ErrorMessage = "此為必填項目")]
         public System.DateTime Bdate { get; set; }
-
-        [DisplayName("記事")]
         public string Notes { get; set; }
-
-        [DisplayName("管理")]
         public string Manager { get; set; }
-
-        [DisplayName("郵箱")]
         public string Email { get; set; }
-
-        [DisplayName("帳號")]
-        [Required(ErrorMessage = "此為必填項目")]
         public string Account { get; set; }
-
-        [DisplayName("密碼")]
-        [Required(ErrorMessage = "此為必填項目")]
         public string Password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

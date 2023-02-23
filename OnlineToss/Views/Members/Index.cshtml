@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Toss Members</h2>
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("新增會員", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
@@ -34,6 +34,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BornTimes.BornTimeName)
         </th>
         <th></th>
     </tr>
@@ -63,6 +66,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BornTimes.BornTimeName)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.MemID }) |

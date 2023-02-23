@@ -17,7 +17,8 @@ namespace OnlineToss.Controllers
         // GET: Members
         public ActionResult Index()
         {
-            return View(db.Members.ToList());
+            var members = db.Members.Include(m => m.BornTimes);
+            return View(members.ToList());
         }
 
         // GET: Members/Details/5
@@ -38,6 +39,7 @@ namespace OnlineToss.Controllers
         // GET: Members/Create
         public ActionResult Create()
         {
+            ViewBag.BornTimeID = new SelectList(db.BornTimes, "BornTimeID", "BornTimeName");
             return View();
         }
 
@@ -46,7 +48,7 @@ namespace OnlineToss.Controllers
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MemID,MemName,Gender,Phone,Address,Birthday,Email,Account,Password")] Members members)
+        public ActionResult Create([Bind(Include = "MemID,MemName,Gender,Phone,Address,Birthday,Email,Account,Password,BornTimeID")] Members members)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +57,7 @@ namespace OnlineToss.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.BornTimeID = new SelectList(db.BornTimes, "BornTimeID", "BornTimeName", members.BornTimeID);
             return View(members);
         }
 
@@ -70,6 +73,7 @@ namespace OnlineToss.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.BornTimeID = new SelectList(db.BornTimes, "BornTimeID", "BornTimeName", members.BornTimeID);
             return View(members);
         }
 
@@ -78,7 +82,7 @@ namespace OnlineToss.Controllers
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MemID,MemName,Gender,Phone,Address,Birthday,Email,Account,Password")] Members members)
+        public ActionResult Edit([Bind(Include = "MemID,MemName,Gender,Phone,Address,Birthday,Email,Account,Password,BornTimeID")] Members members)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +90,7 @@ namespace OnlineToss.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.BornTimeID = new SelectList(db.BornTimes, "BornTimeID", "BornTimeName", members.BornTimeID);
             return View(members);
         }
 

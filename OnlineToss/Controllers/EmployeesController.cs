@@ -20,21 +20,21 @@ namespace OnlineToss.Controllers
             return View(db.Employees.ToList());
         }
 
-        [HttpGet]
-        public ActionResult Gender()
-        {
-            //上下架的下拉選單的資料清單
-            ViewData["Gender"] = new List<SelectListItem>()
-            {
-              new SelectListItem(){ Text="請選擇",Value="-1",Selected=true},
-              new SelectListItem(){ Text="女",Value="true" },
-              new SelectListItem(){ Text="男",Value="false" },
-            };
+        //[HttpGet]
+        //public ActionResult Gender()
+        //{
+        //    //上下架的下拉選單的資料清單
+        //    ViewData["Gender"] = new List<SelectListItem>()
+        //    {
+        //      new SelectListItem(){ Text="請選擇",Value="-1",Selected=true},
+        //      new SelectListItem(){ Text="女",Value="true" },
+        //      new SelectListItem(){ Text="男",Value="false" },
+        //    };
 
-            //IEnumerable<Employees> result = this.QueryData(10, 0, new FormCollection());
+        //    //IEnumerable<Employees> result = this.QueryData(10, 0, new FormCollection());
 
-            return View();
-        }
+        //    return View();
+        //}
 
         // GET: Employees/Details/5
         public ActionResult Details(string id)

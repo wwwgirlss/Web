@@ -1,0 +1,42 @@
+﻿@model IEnumerable<OnlineToss.Models.PaymentType>
+
+@{
+    ViewBag.Title = "付款種類";
+}
+
+<h2 >付款種類</h2>
+
+<p>
+    @Html.ActionLink("新增付款種類", "Create")
+</p>
+<table class="table text-center">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PayID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PayName)
+        </th>
+        <th>
+           資 料 管 理
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class="text-center">
+        <td>
+            @Html.DisplayFor(modelItem => item.PayID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PayName)
+        </td>
+        <td>
+            @Html.ActionLink("修改", "Edit", new { id = item.PayID }) |
+            @Html.ActionLink("詳細", "Details", new { id = item.PayID }) |
+            @Html.ActionLink("刪除", "Delete", new { id = item.PayID })
+        </td>
+    </tr>
+}
+
+</table>
