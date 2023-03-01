@@ -114,9 +114,9 @@
                 @Html.DisplayFor(modelItem => item.Password)
                 </td>*@
                 <td>
-                    @Html.ActionLink("修改", "Edit", new { id = item.EmpID })
-                    @Html.ActionLink("詳細", "Details", new { id = item.EmpID })
-                    @Html.ActionLink("刪除", "Delete", new { id = item.EmpID })
+                    @Html.ActionLink("修改", "Edit", new { id = item.EmpID },new { @class = "btn btn-info" })
+                    @Html.ActionLink("詳細", "Details", new { id = item.EmpID }, new { @class = "btn btn-warning" })
+                    @*@Html.ActionLink("刪除", "Delete", new { id = item.EmpID })*@
                 </td>
 
             </tr>

@@ -1,0 +1,27 @@
+﻿
+
+
+.jumbotron {
+    background-image: url('../img/12345678.png');
+    background-repeat: round;
+    width: auto;
+    border-radius: 15px;
+    box-shadow: 3px 3px Gray,-1em 0.4em silver;
+}
+
+.txtFont {
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    font-family: 思源黑體;
+}
+
+@media screen and (max-width:960px) {
+    div {
+       
+        border: 3px ;
+        font-size: 3rem;
+    }
+}
+
+
+

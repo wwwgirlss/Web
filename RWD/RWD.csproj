@@ -102,7 +102,23 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\MyStyle.css" />
+    <Content Include="Content\MyStyle022HW3.css" />
+    <Content Include="Content\styles_toss_5.css" />
+    <Content Include="Content\styles_toss_2.css" />
+    <Content Include="Content\styles_toss.css" />
     <Content Include="Content\styles.css" />
+    <Content Include="HW3.html" />
+    <Content Include="img\123.PNG" />
+    <Content Include="img\1234.PNG" />
+    <Content Include="img\12345.png" />
+    <Content Include="img\123456.png" />
+    <Content Include="img\1234567.png" />
+    <Content Include="img\12345678.png" />
+    <Content Include="img\baubei.gif" />
+    <Content Include="img\baubei2.gif" />
+    <Content Include="img\baubei4.gif" />
+    <Content Include="img\s_18808835.jpg" />
+    <Content Include="img\toss.gif" />
     <Content Include="photo\00.jpg" />
     <Content Include="photo\01.jpg" />
     <Content Include="photo\02.jpg" />
@@ -220,6 +236,12 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Testpro_OnlineToss.html" />
+    <Content Include="TEST_TOSS_6.html" />
+    <Content Include="TEST_TOSS_5.html" />
+    <Content Include="TEST_TOSS_4.html" />
+    <Content Include="TEST_TOSS_3.html" />
+    <Content Include="TEST_TOSS_2.html" />
+    <Content Include="TEST_TOSS.html" />
     <Content Include="Web.config" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
@@ -252,6 +274,7 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

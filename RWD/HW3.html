@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    
+    <title>前端作業三 | 22李核渝</title>
+
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <!--<link href="Content/MyStyle.css" rel="stylesheet" />-->
+    <link href="Content/MyStyle022HW3.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+        <!--<div class="container">-->
+
+        <h1 class="navbar-brand ml-4" href="#">LOVE PET領養平台</h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse ml-3" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">首頁 <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-house-heart"></i>毛小孩領養
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">領養指南</a>
+                        <a class="dropdown-item" href="#">領養說明</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">申請領養</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="bi bi-search-heart"></i>走失協尋</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link "><i class="bi bi-heart-pulse-fill"></i>寵物送別</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link "><i class="bi bi-piggy-bank-fill"></i>愛心募捐</a>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">
+                            <i class="bi bi-clipboard2-data"></i>服務項目
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">飼養指南</a>
+                            <a class="dropdown-item" href="#">寵物醫療</a>
+                            <a class="dropdown-item" href="#">寵物溝通</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+
+        <form class="form-inline my-2 my-lg-0" action="https://www.google.com/search">
+            <input class="form-control mr-sm-2" name="q" type="search" placeholder="Search Something" aria-label="Search"> <!--name="q"收尋網址上的參數給的值-->
+            <button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <div class="text-right ml-5 mr-1">
+            <button type="button" class="btn btn-warning " data-toggle="modal" data-target="#exampleModal">
+                <i class="bi bi-envelope-at-fill"></i>留言
+            </button> 
+            <button type="button" class="btn btn-warning">
+                <i class="bi bi-telephone-inbound"></i>救援
+            </button>
+        </div>
+
+        <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">感謝您寶貴的意見</h5>
+                        <!--<button type="button" class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>-->
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>您的大名是 </label>
+                            <input type="text" placeholder="Your Name..." class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>您的連絡電話</label>
+                            <input type="text" placeholder="Your Name..." class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>請留下訊息</label>
+                            <textarea id="TextArea1" rows="2" cols="20" placeholder="Your Messages..." class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                        <button type="submit" class="btn btn-warning">送出</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </nav>
+    <div class="container mr-1 ">
+        <div class="text-right my-2">
+
+            <div type="button" class="btn btn-primary" style="width: 50px; height: 50px; border-radius: 50%">
+                <h3><a class="text-light my-5 " style="font-size:24px" title="facebook" href="https://www.facebook.com/"><i class="bi bi-facebook"></i></a></h3>
+            </div>
+            <div type="card " class="btn btn-success" style="width: 50px; height: 50px; border-radius: 50%">
+                <h3><a class="text-light text-left my-5" style="font-size:24px" title="line" href="https://line.me/en/"><i class="bi bi-line"></i></a></h3>
+            </div>
+            <div type="button" class="btn btn-danger" style="width: 50px; height: 50px; border-radius: 50%">
+                <h3><a class="text-light my-5" style="font-size:23px" title="instagram" href="https://www.instagram.com/"><i class="bi bi-instagram "></i></a></h3>
+            </div>
+        </div>
+    </div>
+
+
+        <div class="container mt-2">
+            <div class="jumbotron txtFont">
+
+                <h1 class="display-4 "><strong>2023〈日日與你〉</strong></h1>
+                <h2 class="lead"><strong>【公益桌曆｜暖心義賣中】</strong></h2>
+                <hr class="my-4 bg-white ml-0" style="width:400px">
+                <h4 class=" p-2 rounded">🐈2023為友公益年曆海報🐈</h4>
+                <a class="btn btn-light btn-lg " href="#">了解更多...</a>
+            </div>
+
+
+        </div>
+
+        <div class="container">
+            <div class="row">
+
+            </div>
+        </div>
+        <script src="Scripts/jquery-3.6.1.min.js"></script>
+        <script>
+            //要使用open data資料介接必須使用ajax
+
+            $.ajax({
+                type: 'get',
+                url: 'https://data.coa.gov.tw/Service/OpenData/TransService.aspx?UnitId=QcbUEzN6E6DL&$top=1000&$skip=0',
+                success: function (data) {
+                    //alert("資料取得成功");
+                    console.log(data);
+                    var dataItem = "";
+                    for (var item of data) {
+                        dataItem =
+                            `  <div class="card border-warning shadow col-lg-3 col-sm-6 mt-2" style="height:auto;background-color:lightgoldenrodyellow;border-radius:35px">
+                                                                    <img src="${item.album_file}" class="card-img-top img-thumbnail mt-3" style="width:250px;height:250px;border-radius:20px " />
+                                                                    <div class="card-body border-info" >
+                                                                        <h3 class="card-title btn btn-warning btn-block " style="width:50px;height:50px;border-radius:50%;font-size:24px"><strong>${item.animal_kind}</strong></h3>
+                                                                        <h5>${item.animal_Variety} ${item.animal_sex}</h>
+                                                                        <h5>${item.animal_colour}${item.animal_age}</h>
+                                                                        <h5>${item.shelter_name}</h>
+                                                                        <h5>${item.shelter_tel}</h>
+                                                                        <h5>${item.animal_remark}</h>
+
+                                                                    </div>
+                                                                   <hr/>
+                                                                    <div class="mb-3 " >
+                                                                     <a href="https://www.google.com.tw/maps/place/${item.Address}/@${item.Latitude},${item.Longitude},15z/" target="_blank" class="btn btn-info btn-block" >查看地圖</a>
+                                                                    </div>
+                                                                </div>`
+
+                        $('.container>.row').append(dataItem);
+
+                    }
+
+
+                }
+            });
+
+
+
+        </script>
+
+
+        <script src="Scripts/jquery-3.6.1.min.js"></script>
+        <script src="Scripts/bootstrap.bundle.min.js"></script>
+</body>
+</html>

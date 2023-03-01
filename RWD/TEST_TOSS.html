@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>線上擲筊</title>
+
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <!--<link rel="stylesheet" type="text/css" href="style.css">-->
+    <link href="Content/styles_toss.css" rel="stylesheet" />
+   
+</head>
+<body>
+    <div class="container">
+        <h1>線上擲筊</h1>
+        <div class="coin-container">
+            <div class="coin-head"></div>
+            <div class="coin-tail"></div>
+            <div class="coin-head"></div>
+        </div>
+        <button id="toss-button">擲筊</button>
+        <div class="result-container">
+            <p>擲筊結果：<span id="result"></span></p>
+            <p>解卦結果：<span id="gua"></span></p>
+        </div>
+    </div>
+
+    <script src="Scripts/jquery-3.6.1.min.js"></script>
+    <script src="Scripts/bootstrap.bundle.min.js"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>-->
+
+    <script>
+        function tossCoins() {
+            var coins = [];
+            for (var i = 0; i < 3; i++) {
+                coins.push(Math.random() < 0.5 ? '正面' : '反面');
+            }
+            return coins.join('');
+        }
+
+        function interpretResult(result) {
+            var yao = '';
+            for (var i = 0; i < 3; i++) {
+                yao += result[i] === '正面' ? '陰' : '陽';
+            }
+            var sixYao = ['老陰', '少陰', '少陽', '老陽', '少陰', '老陽'];
+            var gua = '';
+            for (var i = 0; i < 6; i++) {
+                if (yao[i] === '陰') {
+                    gua += sixYao[i];
+                } else {
+                    gua += sixYao[i] + '之爻';
+                }
+                if (i < 5) {
+                    gua += ', ';
+                }
+            }
+            return gua;
+        }
+
+        $(document).ready(function () {
+            $('#toss-button').on('click', function () {
+                // 擲筊
+                var result = tossCoins();
+
+                // 解卦
+                var gua = interpretResult(result);
+
+                // 設置擲筊結果和解卦結果的顯示
+                $('#result').text('擲筊結果：' + result);
+                $('#gua').text('解卦結果：' + gua);
+            });
+        });
+    </script>
+</body>
+</html>
+

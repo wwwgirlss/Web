@@ -17,7 +17,8 @@ namespace MCSDD22
         {
             //啟動DB Initializer建立資料庫//
 
-            Database.SetInitializer<MCSDD22Context>(new MCSDD22Initailizer());
+            //以下是重置資料庫資料的方式,不需要時可以先註記起來
+            //Database.SetInitializer<MCSDD22Context>(new MCSDD22Initailizer());
 
             //應用程式啟動時執行的程式碼
 

@@ -1,31 +1,36 @@
-﻿@model IEnumerable<MCSDD22.Models.Members>
+﻿
+@using PagedList;
+@using PagedList.Mvc;
+
+@*@model IEnumerable<MCSDD22.Models.Members>*@
+@model IPagedList<MCSDD22.Models.Members>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2 class="mt-5">會員資料區</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
+<p class=" mt-3 btn btn-outline-primary">
+    @Html.ActionLink("+ 新增會員資料 +", "Create")
 </p>
-<table class="table">
+<table class="table mt-3">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.MemberID)
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.FirstOrDefault().MemberID)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MemberName)
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.FirstOrDefault().MemberName)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MemberBirthday)
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.FirstOrDefault().MemberBirthday)
         </th>
         @*<th>
                 @Html.DisplayNameFor(model => model.MemberPhotofile)
             </th>*@
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedDate)
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.FirstOrDefault().CreatedDate)
         </th>
         @*<th>
                 @Html.DisplayNameFor(model => model.Account)
@@ -33,25 +38,27 @@
             <th>
                 @Html.DisplayNameFor(model => model.Password)
             </th>*@
-        <th></th>
+        <th class="text-center">
+            資料管理
+        </th>
     </tr>
 
     @foreach (var item in Model)
     {
         <tr>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.MemberID)
             </td>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.MemberName)
             </td>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.MemberBirthday)
             </td>
             @*<td>
                     @Html.DisplayFor(modelItem => item.MemberPhotofile)
                 </td>*@
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.CreatedDate)
             </td>
             @*<td>
@@ -60,23 +67,32 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Password)
                 </td>*@
-            <td>
-                @Html.ActionLink("編輯資料", "Edit", new { id = item.MemberID }, new { @class = "btn btn-warning btn-sm" })
+            <td class="text-center">
+                @*@Html.ActionLink("編輯資料", "Edit", new { id = item.MemberID }, new { @class = "btn btn-warning btn-sm" })*@
 
+                <button type="button" id="@item.MemberID" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#showEditModal" onclick="getEditData(event)">
+                    <i class="bi bi-pencil-fill"></i>修改資料
+                </button>
 
                 @*@Html.ActionLink("查看詳細資料", "Details", new { id = item.MemberID }, new { @class = "btn btn-success btn-sm"})*@
 
                 <button type="button" id="@item.MemberID" class="btn btn-success btn-sm" data-toggle="modal" data-target="#showDetailModal" onclick="getDetailData(event)">
-                    查看詳細資料
+                    <i class="bi bi-search-heart"></i>詳細資料
                 </button>
 
-                @Html.ActionLink("更改密碼", "Delete", new { id = item.MemberID }, new { @class = "btn btn-danger btn-sm" })
+                @*@Html.ActionLink("更改密碼", "Delete", new { id = item.MemberID }, new { @class = "btn btn-danger btn-sm" })*@
+                <button type="button" id="@item.MemberID" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#showDeleteModal" onclick="getDeleteData(event)">
+                    <i class="bi bi-bag-heart"></i>更改密碼
+                </button>
+
             </td>
         </tr>
     }
 
 </table>
 
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 
 
 <div class="modal fade" id="showDetailModal" tabindex="-1">
@@ -98,11 +114,43 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="showEditModal" tabindex="-1">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                @*<h5 class="modal-title" id="exampleModalLabel">會員修改</h5>*@
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+
+            </div>
+            @*<div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>*@
+        </div>
+    </div>
+</div>
+
 @section scripts{
     <script>
+        $('.pagination-container >ul').addClass('justify-content-center');
+        $('.pagination-container >ul>li').removeClass().addClass('page-item');
+        $('.pagination-container >ul>li>a').addClass('page-link');
+
+
+
         function getDetailData(evt) {
 
             $('#showDetailModal .modal-body').load("/Members/_Details/" + evt.target.id);
+
+        }
+        function getEditData(evt) {
+
+            $('#showEditModal .modal-body').load("/Members/_Edit/" + evt.target.id);
         }
     </script>
 }

@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lucky100</title>
+    <style>
+        body {
+            background-color: #f6f6f6;
+        }
+
+        .container {
+            margin: 0 auto;
+            width: 400px;
+            height: 400px;
+            /*background-image: url('https://img.itw01.com/images/2018/03/05/12/1222_vCU5o0_CSTMEAV.jpg!r800x0.jpg');*/
+            background-size: 100% 100%;
+            position: relative;
+            top:auto;
+            left:0px;
+        }
+        .container2 {
+            margin: 0 auto;
+            width: 400px;
+            height: 400px;
+            background-size: 100% 100%;
+            position: relative;
+            left: 120px;
+            text-shadow:3px;
+        }
+        .toss {
+            margin: 0 auto;
+            width: 400px;
+            height: 400px;
+            background-size: 100% 100%;
+            position: relative;
+            right: 10px
+        }
+
+        .dice {
+            position: absolute;
+            width: 250px;
+            height: 80px;
+            background-color: #fff;
+            border: 2px solid #000;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 60px;
+            font-weight: bold;
+            top: 160px;
+            left: 1px;
+            line-height: 80px;
+        }
+
+        .button {
+            position: absolute;
+            top: 350px;
+            left:30px;
+            width: 180px;
+            height: 30px;
+            background-color: #fff;
+            border: 2px solid #000;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+     <img src="img/toss.gif" />
+
+
+    </div>
+    <div class="container2">
+
+        <div class="dice"></div>
+        <div class="button d-block text-white " style="background-color:brown">我要抽籤</div>
+
+    </div>
+    <div class="container" id="toss">
+        <div>
+            <img src="img/baubei.gif" />
+            <img src="img/baubei2.gif" />
+            <img src="img/baubei4.gif" />
+        </div>
+        <div class="button " style="background-color:burlywood">我要筊杯</div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var button = $('.button');
+            var dice = $('.dice');
+
+            button.on('click', function () {
+                var randomNumber = Math.floor(Math.random() * 100) + 1;
+                var result = "第" + randomNumber + "籤";
+                dice.text(result);
+            });
+        });
+    </script>
+</body>
+</html>

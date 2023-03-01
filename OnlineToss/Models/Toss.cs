@@ -11,9 +11,11 @@ namespace OnlineToss.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class Toss
     {
+        [DisplayName("籤號")]
         public string TossID { get; set; }
         public string TossName { get; set; }
         public string Content { get; set; }

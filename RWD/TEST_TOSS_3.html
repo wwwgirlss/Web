@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>線上筊杯</title>
+    <style>
+        #cup {
+            width: 100px;
+            height: 100px;
+            position: relative;
+        }
+
+            #cup img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 1;
+                transition: opacity 1s ease-in-out;
+            }
+
+                #cup img:nth-of-type(1) {
+                    opacity: 0;
+                }
+
+        #button {
+            width: 100px;
+            height: 30px;
+            margin-top: 20px;
+            border: none;
+            background-color: #0d6efd;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="cup">
+        <img src="https://i.imgur.com/9Rs91Qf.png">
+        <img src="https://i.imgur.com/DUeCvB8.png">
+    </div>
+    <button id="button">搖筊杯</button>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+$(document).ready(function () {
+            $('#button').on('click', function () {
+                // 隨機選擇一個筊杯圖片
+                var index = Math.floor(Math.random() * 2) + 1;
+
+                // 搖動筊杯
+                $('#cup img:nth-of-type(' + index + ')').css('opacity', '1');
+                $('#cup img:nth-of-type(' + (3 - index) + ')').css('opacity', '0');
+
+                // 顯示搖出的結果
+                var result = (index === 1) ? '陰' : '陽';
+                alert('您搖出了：' + result);
+            });
+});
+    </script>
+</body>
+</html>

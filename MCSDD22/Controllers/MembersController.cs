@@ -2,22 +2,34 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography.X509Certificates;
 using System.Web;
 using System.Web.Mvc;
 using MCSDD22.Models;
+using PagedList;
 
 namespace MCSDD22.Controllers
 {
     public class MembersController : Controller
     {
         private MCSDD22Context db = new MCSDD22Context();
+        setData setData = new setData();
+
+        int pageSize = 5;
 
         // GET: Members
-        public ActionResult Index()
+        public ActionResult Index(int page=1)
         {
-            return View(db.Members.ToList());
+            int currentPage = page < 1 ? 1 : page;
+
+            var member = db.Members.ToList();
+
+            var result = member.ToPagedList(currentPage, pageSize);
+
+            return View(result);
         }
 
         //[ChildActionOnly]
@@ -60,7 +72,8 @@ namespace MCSDD22.Controllers
         }
 
         // GET: Members/Edit/5
-        public ActionResult Edit(int? id)
+        //[ChildActionOnly]
+        public ActionResult _Edit(int? id)
         {
             if (id == null)
             {
@@ -71,7 +84,7 @@ namespace MCSDD22.Controllers
             {
                 return HttpNotFound();
             }
-            return View(members);
+            return PartialView(members);
         }
 
         // POST: Members/Edit/5
@@ -79,42 +92,67 @@ namespace MCSDD22.Controllers
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MemberID,MemberName,MemberPhotoFile,MemberBirthday,CreatedDate,Account,Password")] Members members)
+        public ActionResult _Edit(Members members)
         {
-            if (ModelState.IsValid)
+
+            string sql = "update members set MemberName=@MemberName, MemberBirthday=@MemberBirthday where MemberID=@MemberID";
+
+
+
+            List<SqlParameter> list = new List<SqlParameter>
             {
-                db.Entry(members).State = EntityState.Modified;
+                new SqlParameter("MemberID",members.MemberID),
+                new SqlParameter("MemberName",members.MemberName),
+                new SqlParameter("MemberBirthday",members.MemberBirthday)
+            };
+
+            try
+            {
+                setData.executeSql(sql, list);
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Msg = ex.Message;
+                return View(members);
+            }
+
+
+            //    if (ModelState.IsValid)
+            //    {
+            //        db.Entry(members).State = EntityState.Modified;
+            //        db.SaveChanges();
+            //        return RedirectToAction("Index");
+            //    }
+            //    return View(members);
+            //
+
+        }
+            // GET: Members/Delete/5
+            public ActionResult Delete(int? id)
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Members members = db.Members.Find(id);
+                if (members == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(members);
+            }
+
+            // POST: Members/Delete/5
+            [HttpPost, ActionName("Delete")]
+            [ValidateAntiForgeryToken]
+            public ActionResult DeleteConfirmed(int id)
+            {
+                Members members = db.Members.Find(id);
+                db.Members.Remove(members);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(members);
-        }
-
-        // GET: Members/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Members members = db.Members.Find(id);
-            if (members == null)
-            {
-                return HttpNotFound();
-            }
-            return View(members);
-        }
-
-        // POST: Members/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Members members = db.Members.Find(id);
-            db.Members.Remove(members);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
 
         protected override void Dispose(bool disposing)
         {
