@@ -1,0 +1,70 @@
+﻿@model IEnumerable<OnlineToss.Models.Toss>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3 class="mt-3">TOSS詩籤管理</h3>
+<div class="text-right">
+    <button class="btn btn-outline-danger  my-3">
+        @Html.ActionLink("新增詩籤", "Create")
+    </button>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TossName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Poetry)
+        </th>*@
+        @*<th>
+            @Html.DisplayNameFor(model => model.Explain)
+        </th>*@
+        @*<th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.TPhoto)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.PhotoPath)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TossName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Content)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Poetry)
+        </td>*@
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Explain)
+        </td>*@
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.TPhoto)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.PhotoPath)
+        </td>*@
+    <td>
+        @Html.ActionLink("我要修改", "Edit", new { id = item.TossID }, new { @class = "btn btn-sm btn-info" }) 
+        @Html.ActionLink("查看詳細", "Details", new { id = item.TossID }, new { @class = "btn btn-sm btn-warning" }) 
+        @Html.ActionLink("刪除", "Delete", new { id=item.TossID }, new { @class = "btn btn-sm btn-danger" })
+    </td>
+    </tr>
+}
+
+</table>

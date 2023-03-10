@@ -11,7 +11,7 @@ namespace MCSDD22.Models
     {
         [Key]
         [DisplayName("訂單編號")]
-        [StringLength(11)]
+        [StringLength(12)]
         public string OrderID { get; set; }
 
         [DisplayName("訂單成立時間")]

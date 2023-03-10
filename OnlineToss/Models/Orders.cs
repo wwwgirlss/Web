@@ -11,7 +11,9 @@ namespace OnlineToss.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Orders
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,15 +21,44 @@ namespace OnlineToss.Models
         {
             this.OrderDetails = new HashSet<OrderDetails>();
         }
-    
+
+        [Key]
+        [DisplayName("訂單編號")]
+        [Required(ErrorMessage = "請填寫訂單編號")]
         public string OrderID { get; set; }
+
+        [DisplayName("會員編號")]
+        [Required(ErrorMessage = "請填寫會員編號")]
         public string MemID { get; set; }
+
+        [DisplayName("訂單日期")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.DateTime)]
         public System.DateTime OrderDate { get; set; }
+
+        [DisplayName("付款編號")]
+        [Required(ErrorMessage = "請填寫付款編號")]
         public string PayID { get; set; }
+
+        [DisplayName("運商編號")]
+        [Required(ErrorMessage = "請填寫運商編號")]
         public string ShipID { get; set; }
+
+        [DisplayName("收件地址")]
+        [Required(ErrorMessage = "請填寫收件地址")]
         public string ShipAdd { get; set; }
+
+        [DisplayName("收件姓名")]
+        [Required(ErrorMessage = "請填寫收件姓名")]
         public string ShipName { get; set; }
+
+        [DisplayName("運送日期")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.DateTime)]
         public System.DateTime ShipDate { get; set; }
+
+        [DisplayName("處理人員")]
+        [Required(ErrorMessage = "請填寫員工姓名")]
         public string EmpID { get; set; }
     
         public virtual Employees Employees { get; set; }

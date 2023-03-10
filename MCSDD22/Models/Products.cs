@@ -34,12 +34,12 @@ namespace MCSDD22.Models
         [Required(ErrorMessage = "請輸入商品單價")]
         [Range(0, short.MaxValue, ErrorMessage = "單價不可小於0")]
         [DisplayFormat(DataFormatString = "{0:C0}", ApplyFormatInEditMode = true)]//{0:C0 }
-        public short UnitPrice { get; set; }
+        public short UnitPrice { get; set; } ////外幣用decmail會有角分 //{0:C}去掉0 //short因為台幣沒有小數點
 
         [DisplayName("商品說明")]
         [Required(ErrorMessage = "請輸入商品說明")]
         [StringLength(1000, ErrorMessage = "商品介紹不得超過1000字")]
-        public string Description { get; set; }
+        public string Description { get; set; } 
 
         [DisplayName("庫存量")]
         [Required(ErrorMessage = "請輸入庫存量")]

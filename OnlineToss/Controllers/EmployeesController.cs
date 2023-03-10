@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -51,11 +52,74 @@ namespace OnlineToss.Controllers
             return View(employees);
         }
 
-        // GET: Employees/Create
+        //GET: Employees/Create
         public ActionResult Create()
         {
             return View();
         }
+
+        //public ActionResult Create(Employees employee)
+        //{
+        //    using (SqlConnection connection = new SqlConnection("connectionString"))
+        //    {
+        //        connection.Open();
+        //        using (SqlCommand command = new SqlCommand("getEmpID", connection))
+        //        {
+        //            command.CommandType = CommandType.StoredProcedure;
+
+        //            SqlParameter returnParameter = command.Parameters.Add("@returnVal", SqlDbType.Char, 6);
+        //            returnParameter.Direction = ParameterDirection.ReturnValue;
+
+        //            command.ExecuteNonQuery();
+
+        //            string empID = (string)returnParameter.Value;
+
+        //            employee.EmpID = empID;
+
+        //            // Save the employee object to the database
+        //            // ...
+
+        //            return RedirectToAction("Index");
+        //        }
+        //    }
+        //}
+
+        //public string getEmpID()
+        //{
+        //    string newID = "";
+        //    string lastID = "";
+
+        //    using (SqlConnection connection = new SqlConnection("connectionString"))
+        //    {
+        //        connection.Open();
+
+        //        SqlCommand cmd = new SqlCommand("getEmpID", connection);
+        //        cmd.CommandType = CommandType.StoredProcedure;
+
+        //        SqlDataReader reader = cmd.ExecuteReader();
+
+        //        while (reader.Read())
+        //        {
+        //            lastID = reader.GetString(0);
+        //        }
+
+        //        if (lastID == "")
+        //        {
+        //            newID = "E00001";
+        //        }
+        //        else
+        //        {
+        //            int num = int.Parse(lastID.Substring(1)) + 1;
+        //            newID = "E" + num.ToString().PadLeft(5, '0');
+        //        }
+
+        //        reader.Close();
+        //    }
+
+        //    return newID;
+        //}
+
+
 
         // POST: Employees/Create
         // 若要避免過量張貼攻擊，請啟用您要繫結的特定屬性。
@@ -73,6 +137,8 @@ namespace OnlineToss.Controllers
 
             return View(employees);
         }
+
+        
 
         // GET: Employees/Edit/5
         public ActionResult Edit(string id)

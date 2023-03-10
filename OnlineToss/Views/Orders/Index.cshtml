@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>訂單管理</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("新增訂單", "Create")
 </p>
 <table class="table">
     <tr>
@@ -30,7 +30,8 @@
             @Html.DisplayNameFor(model => model.Members.MemName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PaymentType.PayName)
+            @*@Html.DisplayNameFor(model => model.PaymentType.PayName)*@
+            付款方式
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ShippingMethod.ShipName)

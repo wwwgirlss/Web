@@ -1,16 +1,30 @@
-﻿<!DOCTYPE html>
+﻿@{
+    string text = "", action = "";
+
+    text = Session["member"] == null ? "登入" : "登出";
+    action = Session["member"] == null ? "Login" : "Logout";
+
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title - 我的鍋具商城</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    @RenderSection("css", false)
+
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             @Html.ActionLink("鍋具商城", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,9 +36,28 @@
                     <li class="nav-item active">
                         @Html.ActionLink("首頁", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
                     </li>
+                    @*對應上面宣告登入的string text = "", action = "";*@
+                    <li class="nav-item ml-auto">
+                        @Html.ActionLink(text, action, "Home", new { area = "" }, new { @class = "nav-link btn btn-info text-light" })
+                    </li>
+
+
+                    @*//舊寫法
+        <li class="nav-item ml-auto">
+            @if (Session["member"] == null)
+            {
+                @Html.ActionLink("登入", "Login", "Home", new { area = "" }, new { @class = "nav-link btn btn-info text-light " })
+            }
+            else
+            {
+
+                @Html.ActionLink("登出", "Logout", "Home", new { area = "" }, new { @class = "nav-link btn btn-info text-light" })
+            }
+        </li>*@
+                    @*---------------------*@
                     @*<li class="nav-item">
-                            @Html.ActionLink("API", "Index", "Help", new { area = "" }, new { @class = "nav-link" })
-                        </li>*@
+            @Html.ActionLink("API", "Index", "Help", new { area = "" }, new { @class = "nav-link" })
+        </li>*@
 
                 </ul>
                 @*<form class="form-inline my-2 my-lg-0">

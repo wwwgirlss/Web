@@ -4,63 +4,83 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>查看商品</h2>
 
 <div>
     <h4>Products</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ProName)
-        </dt>
+    <div class="card shadow">
+        <div class="card-body row">
+            <div class="col-6 ">
+                <div>
+                    @Html.DisplayNameFor(model => model.ProName)
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.ProName)
-        </dd>
+                <div>
+                    @Html.DisplayFor(model => model.ProName)
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UnitPrice)
-        </dt>
+                <div>
+                    @Html.DisplayNameFor(model => model.UnitPrice)
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.UnitPrice)
-        </dd>
+                <div>
+                    @Html.DisplayFor(model => model.UnitPrice)
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Quantity)
-        </dt>
+                <div>
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Quantity)
-        </dd>
+                <div>
+                    @Html.DisplayFor(model => model.Quantity)
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Photo)
-        </dt>
+                <div>
+                    @Html.DisplayNameFor(model => model.Categories.CaName)
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Photo)
-        </dd>
+                <div>
+                    @Html.DisplayFor(model => model.Categories.CaName)
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </dt>
+                <div>
+                    @Html.DisplayNameFor(model => model.CreatedDate)
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.CreatedDate)
-        </dd>
+                <div>
+                    @Html.DisplayFor(model => model.CreatedDate)
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Categories.CaName)
-        </dt>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Categories.CaName)
-        </dd>
+            <div class="col-6">
+                <div class="text-center">
+                    <div>
+                        @Html.DisplayNameFor(model => model.Photo)
+                    </div>
 
-    </dl>
+                    <div>
+                        @Html.DisplayFor(model => model.Photo)
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="text-center">
+                    <div class="col-xs-4 text-center">
+                        @*@Html.DisplayFor(model => model.Photo)*@
+                        <img src="@Url.Action("GetProductPhoto", new {id=Model.ProID})" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div class="my-3 text-right">
+    <p>
+        @Html.ActionLink("我要修改", "Edit", new { id = Model.ProID }, new { @class = "btn btn-info" }) |
+        @Html.ActionLink("回商品列表", "Index")
+    </p>
+</div>

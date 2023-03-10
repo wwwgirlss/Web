@@ -32,11 +32,11 @@ namespace MCSDD22.Controllers
 
             if (user == null)
             {
-                ViewBag.ErrMsg = "帳號或密碼有誤";
+                ViewBag.ErrMsg = "帳號或密碼有誤";//先檢查帳號密碼
                 return View(vMLogin);
             }
 
-            Session["user"] = user;
+            Session["user"] = user;//Session來判斷使用者是誰
             return RedirectToAction("Index");
         }
 

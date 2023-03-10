@@ -4,117 +4,97 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>刪除員工</h2>
+<h2 class="text-danger">刪除員工資料</h2>
+<hr />
+<h3 class="alert alert-danger text-center">請確認下列資料內容是否刪除？</h3>
+<hr />
+<div class="card">
+    <div >
+        
+        <div class="card card-heading">
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Employees</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.EmpName)
-        </dt>
+            <div class="panel-heading bg-danger">
+                <h3 class="text-center">@Html.DisplayFor(model => model.EmpID) | @Html.DisplayFor(model => model.EmpName) </h3>
+            </div>
+            <div class="card-body border-danger">
+                @*<dt>
+                        @Html.DisplayNameFor(model => model.EmpID):@Html.DisplayFor(model => model.EmpID)
+                    </dt>*@
+                @*<dt>
+                        @Html.DisplayNameFor(model => model.EmpName) : @Html.DisplayFor(model => model.EmpName)
+                    </dt>*@
 
-        <dd>
-            @Html.DisplayFor(model => model.EmpName)
-        </dd>
+                <div>
+                    @Html.DisplayNameFor(model => model.Gender) : @*@Html.DisplayFor(model => model.Gender)*@
+                    @{
+                        var gender = Model.Gender == true ? "女" : "男";
+                    }
+                    @Html.DisplayFor(model => gender)
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Gender)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Gender)
-        </dd>
+                <div>
+                    @Html.DisplayNameFor(model => model.Phone) : @Html.DisplayFor(model => model.Phone)
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
+                <div>
+                    @Html.DisplayNameFor(model => model.Address) : @Html.DisplayFor(model => model.Address)
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
+                <div>
+                    @Html.DisplayNameFor(model => model.Birthday) : @Html.DisplayFor(model => model.Birthday)
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
+                <hr />
 
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
+                <div>
+                    @Html.DisplayNameFor(model => model.Email) : @Html.DisplayFor(model => model.Email)
+                </div>
+                <div>
+                    @Html.DisplayNameFor(model => model.Account) : @Html.DisplayFor(model => model.Account)
+                </div>
+                <div>
+                    @Html.DisplayNameFor(model => model.Password) : @Html.DisplayFor(model => model.Password)
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Birthday)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Birthday)
-        </dd>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Salary)
-        </dt>
+            <hr />
+            <div class="container">
+                <div class="panel-footer ">
+                    <div>
+                        @Html.DisplayNameFor(model => model.Salary) : @Html.DisplayFor(model => model.Salary)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Salary)
-        </dd>
+                    <div>
+                        @Html.DisplayNameFor(model => model.Bdate) : @Html.DisplayFor(model => model.Bdate)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Bdate)
-        </dt>
+                    <div>
+                        @Html.DisplayNameFor(model => model.Notes) : @Html.DisplayFor(model => model.Notes)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Bdate)
-        </dd>
+                    <div>
+                        @Html.DisplayNameFor(model => model.Manager) : @Html.DisplayFor(model => model.Manager)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Notes)
-        </dt>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Notes)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Manager)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Manager)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
+        </div>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Account)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Account)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Password)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("回選單", "Index")
+        <div class="form-actions no-color my-3 text-right bg-light">
+            <input type="submit" value="確定刪除" class="btn btn-danger" />   
+            <div class="btn btn-outline-danger text-danger">@Html.ActionLink("回員工選單", "Index") </div>
         </div>
     }
 </div>

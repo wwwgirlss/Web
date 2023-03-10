@@ -10,6 +10,7 @@ using MCSDD22.Models;
 
 namespace MCSDD22.Controllers
 {
+    [LoginCheck]
     public class ProductsController : Controller
     {
         private MCSDD22Context db = new MCSDD22Context();
@@ -20,6 +21,8 @@ namespace MCSDD22.Controllers
             return View(db.Products.ToList());
         }
 
+        //產品首頁讀取圖片
+        [LoginCheck(flag = false)]//flag旗標控制提高內聚力
         public FileContentResult GetImage(string id)
         {
             var photo = db.Products.Find(id);

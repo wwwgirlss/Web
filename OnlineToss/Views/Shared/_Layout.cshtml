@@ -5,11 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My Online Toss</title>
 
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    @RenderSection("css", false)
+    <style>
+        .table-hover tbody tr:hover {
+            background-color: #f2db9b;
+        }
+    </style>
+
 
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
 </head>
 <body>
@@ -18,43 +25,43 @@
         <div class="container">
 
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle navbar-light" data-toggle="collapse" data-target=".navbar-collapse">
+                <div type="button" class="navbar-toggle navbar-dark" data-toggle="collapse" data-target=".navbar-collapse">
+                    <div id="logo"><a href="~/MyOnlineToss.html" target="筊杯首頁" title="前往筊杯首頁"><img src="~/photo/logo2_110.png" width="110" height="110" style=" border-radius:50%" /></a></div>
 
-                    <div id="logo" class="d-flex " style=" border-radius:50%"><a href="~/MyOnlineToss.html" target="筊杯首頁" title="前往筊杯首頁"><img src="~/photo/logo2_110.png" width="100" height="100" /></a></div>
-
-                </button>
-                <span class="icon-bar"></span>
-                @Html.ActionLink("ONLINE TOSS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                
+               
             </div>
             <div class="navbar-collapse collapse navbar-dark">
+                <div class="icon-bar ml-1 ">@Html.ActionLink("ONLINE TOSS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</div>
                 <form class="form-inline">
                     <button class="btn btn-outline-light" type="button">@Html.ActionLink("會員管理", "Index", "Members")</button>
                     <button class="btn btn-outline-light" type="button">@Html.ActionLink("員工管理", "Index", "Employees")</button>
-                    <button class="btn btn-outline-light" type="button">@Html.ActionLink("產品管理", "Index", "Products")</button>
+                    <button class="btn btn-outline-light" type="button">@Html.ActionLink("商品管理", "Index", "Products")</button>
                     <button class="btn btn-outline-light" type="button">@Html.ActionLink("訂單管理", "Index", "Orders")</button>
                     <button class="btn btn-outline-light" type="button">@Html.ActionLink("送貨管理", "Index", "ShippingMethods")</button>
-                    <button class="btn btn-outline-light" type="button">@Html.ActionLink("付款管理", "Index", "PaymentType")</button>
+                    <button class="btn btn-outline-light" type="button">@Html.ActionLink("付款管理", "Index", "PaymentTypes")</button>
                     <button class="btn btn-outline-light" type="button">@Html.ActionLink("類別管理", "Index", "Categories")</button>
-                    <button class="btn btn-outline-light" type="button">@Html.ActionLink("詩籤管理", "Index", "Toss")</button>
+                    <button class="btn btn-outline-light" type="button">@Html.ActionLink("詩籤管理", "Index", "Tosses")</button>
                     <button class=" ml-5 " style="border-radius: 10px ; ">@Html.ActionLink("登出", "Logout", "Login", null, new { @class = "nav-link btn btn-light text-danger textbold" })</button>
                 </form>
 
 
                 @*<ul class="nav navbar-nav mr-auto w-100">
 
-                @if (Session["emp"] != null)
-                {
-                    <li type="button" class="nav-item active">@Html.ActionLink("會員資料管理", "Index", "Members")</li>
-                    <li type="button" class="nav-item">@Html.ActionLink("員工資料管理", "Index", "Employees")</li>
-                    <li class="nav-item">@Html.ActionLink("產品資料管理", "Index", "Products")</li>
-                    <li class="nav-item">@Html.ActionLink("訂單資料管理", "Index", "Orders")</li>
-                    <li class="nav-item">@Html.ActionLink("產品類別管理", "Index", "Categories")</li>
-                    <li class="nav-item">@Html.ActionLink("送貨方式管理", "Index", "ShippingMethods")</li>
-                    <li class="nav-item ml-auto">@Html.ActionLink("登出", "Logout", "Login", null, new { @class = "nav-link btn btn-light text-dark" })</li>
-                    ("登出"--按鈕名稱, "Logout"--Action名稱, "Login"--controller)
-                }
+            @if (Session["emp"] != null)
+            {
+                <li type="button" class="nav-item active">@Html.ActionLink("會員資料管理", "Index", "Members")</li>
+                <li type="button" class="nav-item">@Html.ActionLink("員工資料管理", "Index", "Employees")</li>
+                <li class="nav-item">@Html.ActionLink("產品資料管理", "Index", "Products")</li>
+                <li class="nav-item">@Html.ActionLink("訂單資料管理", "Index", "Orders")</li>
+                <li class="nav-item">@Html.ActionLink("產品類別管理", "Index", "Categories")</li>
+                <li class="nav-item">@Html.ActionLink("送貨方式管理", "Index", "ShippingMethods")</li>
+                <li class="nav-item ml-auto">@Html.ActionLink("登出", "Logout", "Login", null, new { @class = "nav-link btn btn-light text-dark" })</li>
+                ("登出"--按鈕名稱, "Logout"--Action名稱, "Login"--controller)
+            }
 
-            </ul>*@
+        </ul>*@
 
             </div>
         </div>
@@ -64,17 +71,19 @@
         @RenderBody()
         <hr />
         <footer>
-            <div style="background-color: #b7dbf2;">
+            <div style="background-color:#ffffff">
 
                 <p class=" text-center ">&copy; @DateTime.Now.Year - Online Toss 線上求籤 By 李核渝</p>
             </div>
 
         </footer>
     </div>
-    
 
-
-    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    @*<script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>*@
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    @RenderSection("scripts", false)
 </body>
 </html>

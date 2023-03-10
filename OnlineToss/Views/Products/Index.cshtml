@@ -4,13 +4,27 @@
     ViewBag.Title = "Index";
 }
 
-<h2>產品新增管理</h2>
+@section css{
+    <style>
+        #addProduct {
+            display: none;
+        }
+    </style>
+}
 
-<p>
-    @Html.ActionLink("新增產品", "Create")
+<h3 class="mt-3">TOSS商品管理</h3>
+
+<p class="text-right">
+    <button type="button" class="btn btn-primary my-3 " data-toggle="modal" data-target="#showCreateModal" onclick="getCreateData(event)">
+        <i class="bi bi-plus-circle-fill "></i>     新增商品
+    </button>
 </p>
-<table class="table">
+
+<table class="table table-striped table-hover">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProID)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.ProName)
         </th>
@@ -20,9 +34,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Quantity)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Photo)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.CreatedDate)
         </th>
@@ -32,32 +46,71 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UnitPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quantity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Photo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Categories.CaName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Photo)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categories.CaName)
+            </td>
+            <td>
+                @Html.ActionLink("修改", "Edit", new { id = item.ProID }, new { @class = "btn btn-sm btn-info" })
+                @Html.ActionLink("詳細", "Details", new { id = item.ProID }, new { @class = "btn btn-sm btn-warning" })
+                @Html.ActionLink("刪除", "Delete", new { id = item.ProID }, new { @class = "btn btn-sm btn-danger" })
+            </td>
+        </tr>
+    }
 
 </table>
+
+
+<div class="modal fade" id="showCreateModal" tabindex="-1">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                @*<h5 class="modal-title" id="exampleModalLabel">新增商品資料</h5>*@
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @*@Html.Action("_Create")*@
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                @*<button type="button" class="btn btn-primary"></button>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+
+
+        function getCreateData(evt) {
+
+            $('#showCreateModal .modal-body').load("/Products/_Create");
+
+        }
+
+    </script>
+}
+

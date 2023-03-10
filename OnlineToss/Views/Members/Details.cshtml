@@ -4,87 +4,81 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h4 class="mt-3">會員詳細資料</h4>
 
 <div>
-    <h4>Members</h4>
+    
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MemName)
-        </dt>
+    <div class="card border-info ">
+        <div class="card-heading text-center bg-warning  ">
+            @*@Html.DisplayNameFor(model => model.MemName)*@
+            <h3 class="mt-3 mb-3">@Html.DisplayFor(model => model.MemName)   </h3>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.MemName)
-        </dd>
+        <div class="card-body">
+            <h4><i class="bi bi-info-square-fill"></i>      @Html.DisplayFor(model => model.MemID)</h4>
+            <div class="mt-3">
+                @*@Html.DisplayNameFor(model => model.Birthday)*@
+                <h4><i class="bi bi-calendar-heart"></i>     @Html.DisplayFor(model => model.Birthday) </h4>
+            </div>
+            <div class="mt-3">
+                @*@Html.DisplayNameFor(model => model.BornTimes.BornTimeName)*@
+                <h4><i class="bi bi-clock-history"></i>     @Html.DisplayFor(model => model.BornTimes.BornTimeName) </h4>
+            </div>
+            <div class="mt-3">
+                <h4>
+                    <i class="bi bi-person-bounding-box"></i>     @*@Html.DisplayNameFor(model => model.Gender) :*@
+                    @{
+                        var gender = Model.Gender == true ? "女性" : "男性";
+                    }
+                    @Html.DisplayFor(model => gender)
+                </h4>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Gender)
-        </dt>
+            <hr />
 
-        <dd>
-            @Html.DisplayFor(model => model.Gender)
-        </dd>
+            <div class="mt-3">
+                @*@Html.DisplayNameFor(model => model.Address)*@
+                <h4><i class="bi bi-house-heart-fill"></i>      @Html.DisplayFor(model => model.Address)</h4>
+            </div>
+            <div class="mt-3">
+                @*@Html.DisplayNameFor(model => model.Phone)*@
+                <h4><i class="bi bi-telephone-forward-fill"></i>     @Html.DisplayFor(model => model.Phone) </h4>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
+        <div class="card-footer">
+            <div>
+                @*@Html.DisplayNameFor(model => model.Email)*@
+                <h3><i class="bi bi-envelope-paper-heart"></i> </h3>   @Html.DisplayFor(model => model.Email)
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Birthday)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Birthday)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
+            <div>
+                @*@Html.DisplayNameFor(model => model.Account)*@
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+                <h3><i class="bi bi-person-fill-exclamation"></i> </h3>   @Html.DisplayFor(model => model.Account)
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Account)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Account)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
+            @*<dt>
+                @Html.DisplayNameFor(model => model.Password)
+            </dt>*@
 
-        <dd>
-            @Html.DisplayFor(model => model.Password)
-        </dd>
+            @*<dd>
+                @Html.DisplayFor(model => model.Password)
+            </dd>*@
 
-        <dt>
-            @Html.DisplayNameFor(model => model.BornTimes.BornTimeName)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.BornTimes.BornTimeName)
-        </dd>
-
-    </dl>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MemID }) |
-    @Html.ActionLink("Back to List", "Index")
+<p class="mt-4 text-right">
+    @Html.ActionLink("我要修改", "Edit", new { id = Model.MemID }) |
+    @Html.ActionLink("回會員列表", "Index")
 </p>

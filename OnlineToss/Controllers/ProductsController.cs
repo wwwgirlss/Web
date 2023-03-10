@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -35,23 +36,79 @@ namespace OnlineToss.Controllers
             }
             return View(products);
         }
-
+        
+        //[ChildActionOnly]
         // GET: Products/Create
-        public ActionResult Create()
+        public ActionResult _Create()
         {
             ViewBag.CaID = new SelectList(db.Categories, "CaID", "CaName");
-            return View();
+
+            return PartialView();
         }
 
         // POST: Products/Create
         // 若要避免過量張貼攻擊，請啟用您要繫結的特定屬性。
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create([Bind(Include = "ProID,CaID,ProName,UnitPrice,Quantity,Photo,CreatedDate")] Products products)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Products.Add(products);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    ViewBag.CaID = new SelectList(db.Categories, "CaID", "CaName", products.CaID);
+        //    return View(products);
+        //}
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProID,CaID,ProName,UnitPrice,Quantity,Photo,CreatedDate")] Products products)
+        public ActionResult Create([Bind(Include = "ProID,CaID,ProName,UnitPrice,Quantity,Photo,CreatedDate")] Products products, HttpPostedFileBase img)
         {
             if (ModelState.IsValid)
             {
+                if (img != null)
+                {
+                    if (img.ContentLength > 0)
+                    {
+                        if (img.ContentLength <= 5242880)
+                        {
+                            var PhotoType = img.ContentType;//取得圖片類型
+
+                            if (PhotoType == "image/jpg" || PhotoType == "image/png" || PhotoType == "image/jpeg")
+                            {
+                                products.Photo = new byte[img.ContentLength];
+                                img.InputStream.Read(products.Photo, 0, img.ContentLength);
+                                //products.ImageMimeType = imageMimeType;
+                                products.PhotoType = img.ContentType;
+                            }
+                            else
+                            {
+                                ViewBag.Message = "圖片類型不支持";
+                                return View(products);
+                            }
+                        }
+                        else
+                        {
+                            ViewBag.Message = "檔案大於5M";
+                            return View(products);
+                        }
+                    }
+                    else
+                    {
+                        ViewBag.Message = "您傳的一個空檔案";
+                        return View(products);
+                    }
+                }
+                else
+                {
+                    ViewBag.Message = "您沒有上傳任何檔案";
+                    return View(products);
+                }
+
                 db.Products.Add(products);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -60,6 +117,18 @@ namespace OnlineToss.Controllers
             ViewBag.CaID = new SelectList(db.Categories, "CaID", "CaName", products.CaID);
             return View(products);
         }
+
+        
+        public FileContentResult GetImage(int? id)
+        {
+            var photo = db.Products.Find(id);
+            if (photo != null) { 
+                return File(photo.Photo, photo.ImageMimeType);
+            }
+            return null;
+        }
+
+
 
         // GET: Products/Edit/5
         public ActionResult Edit(string id)
