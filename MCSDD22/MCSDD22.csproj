@@ -172,6 +172,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomeManagerController.cs" />
     <Compile Include="Controllers\LoginCheck.cs" />
+    <Compile Include="Controllers\MemberOrderController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -381,6 +382,8 @@
     <Content Include="Views\Home\Display.cshtml" />
     <Content Include="Views\Home\MyCart.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\MemberOrder\Order.cshtml" />
+    <Content Include="Views\MemberOrder\MyOrderList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -11,6 +11,18 @@
     <hr />
     <div class="card shadow">
         <div class="card-body row">
+            <div class="col-6">
+                <div class="text-center">
+                    <div class="col-xs-4 text-center">
+                        <img src="@Url.Action("GetImage",new { id= Model.ProID})" width="150" />
+                    </div>
+                </div>
+            </div>
+            @*<div class="col-xs-4 text-center">
+            @Html.DisplayFor(model => model.Photo)
+            <img src="@Url.Action("GetEmployeePhoto", new {id=Model.EmployeeID},)" />
+        </div>*@
+
             <div class="col-6 ">
                 <div>
                     @Html.DisplayNameFor(model => model.ProName)
@@ -54,27 +66,20 @@
 
             </div>
 
-            <div class="col-6">
-                <div class="text-center">
-                    <div>
-                        @Html.DisplayNameFor(model => model.Photo)
-                    </div>
-
-                    <div>
-                        @Html.DisplayFor(model => model.Photo)
-                    </div>
-
+            @*<div class="col-6">
+            <div class="text-center">
+                <div>
+                    @Html.DisplayNameFor(model => model.Photo)
                 </div>
-            </div>
-            <div class="col-6">
-                <div class="text-center">
-                    <div class="col-xs-4 text-center">
-                        @*@Html.DisplayFor(model => model.Photo)*@
-                        <img src="@Url.Action("GetProductPhoto", new {id=Model.ProID})" />
 
-                    </div>
+                <div>
+                    @Html.DisplayFor(model => model.Photo)
                 </div>
+
             </div>
+        </div>*@
+
+
         </div>
     </div>
 </div>

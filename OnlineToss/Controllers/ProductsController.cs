@@ -118,15 +118,34 @@ namespace OnlineToss.Controllers
             return View(products);
         }
 
-        
-        public FileContentResult GetImage(int? id)
+
+        public FileContentResult GetImage(string id)
         {
-            var photo = db.Products.Find(id);
-            if (photo != null) { 
-                return File(photo.Photo, photo.ImageMimeType);
+            var img = db.Products.Find(id);
+            if (img != null)
+            {
+                return File(img.Photo, "image/jpeg");
             }
+            
             return null;
         }
+
+        //public FileResult GetImage(int? id)
+        //{
+        //    //if (id == null)
+        //    //{
+        //    //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    //}
+        //    Products products = db.Products.Find(id);
+
+        //    byte[] img = products.Photo.Skip(78).ToArray();
+
+        //    //MemoryStream ms =new MemoryStream(photo);
+
+        //    return File(img, "image/bmp");
+
+        //}
+
 
 
 

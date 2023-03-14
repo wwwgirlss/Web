@@ -13,7 +13,7 @@
 <h1 class="text-right" id="btnArea">
     <i class="bi bi-cart-check text-info" id="updateCart" data-toggle="tooltip" data-placement="bottom" title="更新購物車"></i>
     <i class="bi bi-cart-x text-danger" id="clearCart" data-toggle="tooltip" data-placement="bottom" title="清空購物車"></i>
-    <i class="bi bi-cash-coin text-success" data-toggle="tooltip" data-placement="bottom" title="確定結帳"></i>
+    <a href="@Url.Action("Order","MemberOrder")" class="bi bi-cash-coin text-success" data-toggle="tooltip" data-placement="bottom" title="確定結帳"></a>
 </h1>
 <div>
     <a href="@Url.Action("Index")"><i class="bi bi-backspace-fill"></i> 返回商品主頁</a>

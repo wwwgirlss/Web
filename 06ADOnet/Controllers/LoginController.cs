@@ -73,23 +73,6 @@ namespace _06ADOnet.Controllers
             return View();
 
 
-
-            //conn.Open();
-            //rd = cmd.ExecuteReader();//rd會去資料庫取資料到dataset
-            //if (rd.Read())
-            //{
-            //    Session["emp"] = rd[0]; //[0]讀第一筆資料
-            //    conn.Close();//很重要經常忘記
-            //    return RedirectToAction("Index", "Customers");
-            //}
-            //else 
-            //{
-            //    ViewBag.ErrMsg = "帳號或密碼有誤";
-            //    //conn.Close();
-            //    return View();
-
-            //}
-
         }
 
 

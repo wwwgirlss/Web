@@ -4,9 +4,9 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
+<h2 class="text-danger mt-3">刪除一筆類型</h2>
+<hr />
+<h3 class="alert alert-danger text-center">請確認下列資料內容是否刪除？</h3>
 <div>
     <h4>Categories</h4>
     <hr />
@@ -21,7 +21,8 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
