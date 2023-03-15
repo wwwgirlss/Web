@@ -101,6 +101,7 @@
     <Content Include="App_Data\dbEmployee_log.ldf">
       <DependentUpon>dbEmployee.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -132,6 +133,8 @@
       <DependentUpon>OnlineTossModel.edmx</DependentUpon>
       <LastGenOutput>OnlineTossModel.cs</LastGenOutput>
     </Content>
+    <Content Include="photo\black-wood-grain-background-image_2766363 %281%29.jpg" />
+    <Content Include="photo\istockphoto-1045681574-612x612.jpg" />
     <Content Include="photo\logo2.png" />
     <Content Include="photo\logo2_110.png" />
     <Content Include="photo\logo3.png" />
@@ -153,10 +156,13 @@
     <Content Include="photo\toss_remove.png" />
     <Content Include="photo\toss_remove50.png" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\demo.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Toss_1to100.html" />
     <Content Include="SideBarJS.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -266,8 +272,8 @@
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="MyOnlineToss.html" />
     <Content Include="SideBar.html" />
+    <Content Include="styles2_2.css" />
     <Content Include="styles2.css" />
-    <Content Include="Toss_1to100.html" />
     <Content Include="TOSS_6.html" />
     <Content Include="Web.config" />
     <Content Include="Scripts\umd\popper.min.js.map" />
@@ -306,6 +312,7 @@
     <Compile Include="Controllers\BornTimesController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomeManagerController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\OrderDetailsController.cs" />
@@ -406,6 +413,7 @@
     <Content Include="Views\Shared\_Layout _Manager.cshtml" />
     <Content Include="Views\HomeManager\Login.cshtml" />
     <Content Include="Views\HomeManager\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

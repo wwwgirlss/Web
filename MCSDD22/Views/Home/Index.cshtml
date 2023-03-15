@@ -62,6 +62,8 @@
         <div class="col-lg-4  p-1">
             <div class="card border-dark ">
                 <a href="@Url.Action("Display", new { id=item.ProductID})">
+                    <img src="@Url.Action("GetImage","Products",new { id=item.ProductID})" class="img-fluid pt-2" />@*制定路由*@
+
                     <img src="@Url.Action("GetImage","Products",new { id=item.ProductID})" class="img-fluid pt-2" /> @*p-padding*@
 
                     <div class="card-body">

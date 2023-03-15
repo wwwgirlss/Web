@@ -31,16 +31,16 @@
             @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="nav-item dropdown-item">
-                    @*@Html.EditorFor(model => model.Gender)*@
+                    @Html.EditorFor(model => model.Gender)
                     @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
-                    @if (Model.Gender == true)
+                    @*@if (Model.Gender == true)
                     {
                         <i class="bi bi-gender-female"></i><p>女</p>
                     }
                     else
                     {
                         <p><i class="bi bi-gender-male"></i>男</p>
-                    }
+                    }*@
                 </div>
             </div>
         </div>

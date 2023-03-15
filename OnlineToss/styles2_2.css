@@ -1,0 +1,164 @@
+﻿/*左邊詩籤*/
+.container-all {
+    display:flex;
+    align-items:stretch;
+
+    }
+
+#sidebar {
+    width: 450px;
+    height: 100vh;
+    background-color: #353131;
+    color: whitesmoke;
+    transition: 1s;
+    background-image: url('photo/black-wood-grain-background-image_2766363 (1).jpg');
+    margin-right:100px;
+}
+
+#sidebar.active {
+    margin-left: -380px;
+    
+}
+
+.container-right {
+    width: 100%;
+    height: 100vh;
+    background-color:#dbd3d3;
+    text-align:center;
+    padding:30px;
+}
+
+.collapse-btn {
+    position: relative;
+    top: 1%;
+    left: 380px;
+    background-color:indianred;
+    color:black;
+    border: none;
+    font-size: 20px;
+    padding:5px;
+}
+    .collapse-btn:hover {
+        background-color:brown;
+        transition: 0.4s;
+        color:beige;
+    }
+
+#sidebar p {
+    text-align:center;
+    font-size:28px;
+    font-style:normal;
+    padding:30px;
+    text-shadow:30px;
+}
+
+#sidebar ul li a {
+    padding: 20px;
+    font-size: 1.3em;
+    display: block;
+    color: antiquewhite;
+    position:center
+}
+
+#sidebar ul li a:hover {
+    color:darkslategray;
+    background-color:whitesmoke;
+    text-decoration:none;
+}
+
+.fas,
+.fa,
+.fa,
+.fa{
+    float: right;
+}
+
+@media (max-width:600px) {
+    #sidebar {
+    margin-left:-100px;
+    width:150px;
+    font-size:20px
+    }
+
+    .collapse-btn {
+    position:relative;
+    top:1%;
+    left:130px;
+    
+    }
+
+    #sidebar.active {
+    margin-left:0px;
+    }
+}
+/*抽籤區*/
+body {
+    /*display: flex;*/
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(#FF7575, #F0F0F0,#FF2D2D);
+    font-family: fantasy,LiHei Pro
+}
+
+.container {
+    margin: 0 auto;
+    width: 400px;
+    height: 400px;
+    /*background-image: url('https://img.itw01.com/images/2018/03/05/12/1222_vCU5o0_CSTMEAV.jpg!r800x0.jpg');*/
+    background-size: 100% 100%;
+    position: relative;
+    top: auto;
+    left: 700px;
+}
+
+.container2 {
+    margin: 0 auto;
+    width: 400px;
+    height: 400px;
+    background-size: 100% 100%;
+    position: relative;
+    left: 120px;
+    text-shadow: 3px;
+}
+
+.toss {
+    margin: 0 auto;
+    width: 400px;
+    height: 400px;
+    background-size: 100% 100%;
+    position: relative;
+    right: 10px
+}
+
+.dice {
+    position: absolute;
+    width: 250px;
+    height: 80px;
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 60px;
+    font-weight: bold;
+    top: 90px;
+    left: 450px;
+    line-height: 80px;
+    
+}
+
+.button {
+    position: absolute;
+    top: 300px;
+    left: 30px;
+    width: 180px;
+    height: 30px;
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    left: 480px;
+    color: black
+}

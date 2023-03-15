@@ -12,6 +12,29 @@ namespace MCSDD22.Controllers
     public class HomeController : Controller
     {
         MCSDD22Context db = new MCSDD22Context();
+        //要先去customErrors mode="On"把它ON來
+        //[HandleError]預設寫法 //[HandleError(View="Error")] 指定Error頁面
+        [HandleError(View = "Error")]
+        public ActionResult ExceptionDemo()
+        {
+            int i = 0;
+
+            int j = 100 / i;
+
+            return View();
+        }
+
+        public ActionResult Test()
+        {
+            //int i = 0;
+
+            //int j = 100 / i;
+
+            //return View();
+
+            throw new NotImplementedException();
+        }
+
         public ActionResult Index()
         {
             var products = db.Products.Where(p => p.Discontinued == false).ToList();
@@ -61,6 +84,22 @@ namespace MCSDD22.Controllers
                 return HttpNotFound();
 
             return View(product);
+        }
+        //自訂路由
+        //[Route(@"Products/{title}")]
+        public ActionResult DisplayByTitle(string title)
+        {
+
+            if (title == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            var Title = Server.UrlDecode(title);
+            var product = db.Products.Where(p => p.ProductName == Title).FirstOrDefault();
+
+            if (product == null)
+                return HttpNotFound();
+
+            return View("Display", product);
         }
 
 

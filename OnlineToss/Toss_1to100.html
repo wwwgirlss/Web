@@ -1,19 +1,211 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>詩籤 1 ~ 100 號</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抽籤 | 詩籤1-100</title>
+    <!--css-->
+
+    <link href="Content/styles2.css" rel="stylesheet" />
+    <link href="styles2_2.css" rel="stylesheet" />
+    <!--JQ-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!--JS-->
+    <script src="CustomScript.js"></script>
+
+    <!--FA-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <!--BS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+    <style>
+    </style>
+
 </head>
 <body>
     <div class="container-all">
-        <div>
-            <button></button>
+        <!--左邊-->
+        <div class="container-left"></div>
+        <!--導覽列-->
+        <nav id="sidebar">
+            <!--縮起來按鈕-->
+            <button type="button" id="collapse" class="btn btn-light collapse-btn  ">
+                <i class="fas fa-align-left"></i>
+                <!--<i class="far fa-arrow-alt-to-right"></i>-->
+            </button>
+
+            <!--list列表sidebar-->
+            <div class="list-unstyled">
+                <p>查找詩籤</p>
+                <div class="row">
+                    <!--1-10-->
+                    <div class="col-3">
+                        <button><a href="Tosses/Details/001" target="_blank" class="text-decoration-none">第01籤</a>   </button>
+                        <button>第02籤  </button>
+                        <button>第03籤  </button>
+                        <button>第04籤  </button>
+                        <button>第05籤  </button>
+                        <button>第06籤  </button>
+                        <button>第07籤  </button>
+                        <button>第08籤  </button>
+                        <button>第09籤  </button>
+                        <button>第10籤  </button>
+                    </div>
+                    <!--11-20-->
+                    <div class="col-3">
+                        <button>第11籤  </button>
+                        <button>第12籤  </button>
+                        <button>第13籤  </button>
+                        <button>第14籤  </button>
+                        <button>第15籤  </button>
+                        <button>第16籤  </button>
+                        <button>第17籤  </button>
+                        <button>第18籤  </button>
+                        <button>第19籤  </button>
+                        <button>第20籤  </button>
+                    </div>
+                    <!--21-30-->
+                    <div class="col-3">
+                        <button>第21籤  </button>
+                        <button>第22籤  </button>
+                        <button>第23籤  </button>
+                        <button>第24籤  </button>
+                        <button>第25籤  </button>
+                        <button>第26籤  </button>
+                        <button>第27籤  </button>
+                        <button>第28籤  </button>
+                        <button>第29籤  </button>
+                        <button>第30籤  </button>
+                    </div>
+                    <!--31-40-->
+                    <div class="col-3">
+                        <button>第31籤  </button>
+                        <button>第32籤  </button>
+                        <button>第33籤  </button>
+                        <button>第34籤  </button>
+                        <button>第35籤  </button>
+                        <button>第36籤  </button>
+                        <button>第37籤  </button>
+                        <button>第38籤  </button>
+                        <button>第39籤  </button>
+                        <button>第40籤  </button>
+                    </div>
+                    <!--41-50-->
+                    <div class="col-3 ">
+                        <button>第41籤  </button>
+                        <button>第42籤  </button>
+                        <button>第43籤  </button>
+                        <button>第44籤  </button>
+                        <button>第45籤  </button>
+                        <button>第46籤  </button>
+                        <button>第47籤  </button>
+                        <button>第48籤  </button>
+                        <button>第49籤  </button>
+                        <button>第50籤  </button>
+                    </div>
+                    <!--51-60-->
+                    <div class="col-3">
+                        <button>第51籤  </button>
+                        <button>第52籤  </button>
+                        <button>第53籤  </button>
+                        <button>第54籤  </button>
+                        <button>第55籤  </button>
+                        <button>第56籤  </button>
+                        <button>第57籤  </button>
+                        <button>第58籤  </button>
+                        <button>第59籤  </button>
+                        <button>第60籤  </button>
+                    </div>
+                    <!--61-70-->
+                    <div class="col-3">
+                        <button>第61籤  </button>
+                        <button>第62籤  </button>
+                        <button>第63籤  </button>
+                        <button>第64籤  </button>
+                        <button>第65籤  </button>
+                        <button>第66籤  </button>
+                        <button>第67籤  </button>
+                        <button>第68籤  </button>
+                        <button>第69籤  </button>
+                        <button>第70籤  </button>
+                    </div>
+                    <!--71-80-->
+                    <div class="col-3">
+                        <button>第71籤  </button>
+                        <button>第72籤  </button>
+                        <button>第73籤  </button>
+                        <button>第74籤  </button>
+                        <button>第75籤  </button>
+                        <button>第76籤  </button>
+                        <button>第77籤  </button>
+                        <button>第78籤  </button>
+                        <button>第79籤  </button>
+                        <button>第80籤  </button>
+                    </div>
+                    <!--81-90-->
+                    <div class="col-3">
+                        <button>第81籤  </button>
+                        <button>第82籤  </button>
+                        <button>第83籤  </button>
+                        <button>第84籤  </button>
+                        <button>第85籤  </button>
+                        <button>第86籤  </button>
+                        <button>第87籤  </button>
+                        <button>第88籤  </button>
+                        <button>第89籤  </button>
+                        <button>第90籤  </button>
+                    </div>
+                    <!--91-100-->
+                    <div class="col-3">
+                        <button>第91籤  </button>
+                        <button>第92籤  </button>
+                        <button>第93籤  </button>
+                        <button>第94籤  </button>
+                        <button>第95籤  </button>
+                        <button>第96籤  </button>
+                        <button>第97籤  </button>
+                        <button>第98籤  </button>
+                        <button>第99籤  </button>
+                        <button>第100籤  </button>
+                    </div>
+                </div>
+            </div>
+    
+    </nav>
+
+
+    <!--右邊-->
+    <!--抽籤-->
+    <div class="row">
+        <div class="container">
+            <img src="img/toss.gif" />
         </div>
+        <div class="container2 ">
 
+            <div class="dice"></div>
+            <div class="button d-block text-black " style="background-color:burlywood">我要抽籤</div>
 
-
-
+        </div>
     </div>
-
+    </div>
 </body>
 </html>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var button = $('.button');
+        var dice = $('.dice');
+
+        button.on('click', function () {
+            var randomNumber = Math.floor(Math.random() * 100) + 1;
+            var result = "第" + randomNumber + "籤";
+            dice.text(result);
+        });
+    });
+
+    
+</script>
+<script src="SideBarJS.js"></script>
