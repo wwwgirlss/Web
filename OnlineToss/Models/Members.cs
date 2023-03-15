@@ -25,12 +25,12 @@ namespace OnlineToss.Models
         [Key]
         [DisplayName("會員編號")]
         [StringLength(6, ErrorMessage = "會員編號為M_____六位數")]
-        [Required(ErrorMessage = "請填寫員工編號")]
+        //[Required(ErrorMessage = "請填寫會員編號")]
         public string MemID { get; set; }
 
         [DisplayName("會員姓名")]
         [StringLength(40, ErrorMessage = "會員姓名不可超過40字")]
-        [Required(ErrorMessage = "請填寫員工姓名")]
+        //[Required(ErrorMessage = "請填寫會員姓名")]
         public string MemName { get; set; }
         [DisplayName("性別")]
         public bool Gender { get; set; }
@@ -63,8 +63,8 @@ namespace OnlineToss.Models
         public string Password { get; set; }
 
 
-        [DisplayName("出生時辰")]
-        [Required(ErrorMessage = "請填出生時辰")]
+        //[DisplayName("出生時辰")]
+        //[Required(ErrorMessage = "請填選出生時辰")]
         public virtual BornTimes BornTimes { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
