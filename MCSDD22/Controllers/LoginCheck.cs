@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Http.Controllers;
 using System.Web.Mvc;
 
+
 namespace MCSDD22.Controllers
 {  /*過濾使用者*/
     public class LoginCheck : ActionFilterAttribute

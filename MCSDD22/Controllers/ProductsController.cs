@@ -22,7 +22,7 @@ namespace MCSDD22.Controllers
         }
 
         //產品首頁讀取圖片
-        [LoginCheck(flag = false)]//flag旗標控制提高內聚力
+        [LoginCheck(flag = false), LogReport(flag = false)]//flag旗標控制提高內聚力
         public FileContentResult GetImage(string id)
         {
             var photo = db.Products.Find(id);

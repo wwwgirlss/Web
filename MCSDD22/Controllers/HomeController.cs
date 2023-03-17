@@ -42,6 +42,8 @@ namespace MCSDD22.Controllers
 
             return View(products);
         }
+
+
         public ActionResult Login()
         {
             return View();

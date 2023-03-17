@@ -108,6 +108,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\HMLogin.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\styles.css" />
     <Content Include="Content\TossStyleSheet.css" />
@@ -314,6 +315,7 @@
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomeManagerController.cs" />
+    <Compile Include="Controllers\LoginCheck.cs" />
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\OrderDetailsController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />

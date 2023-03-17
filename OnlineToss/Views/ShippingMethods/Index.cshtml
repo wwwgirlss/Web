@@ -6,7 +6,7 @@
 
 
 <h3 class="mt-3">TOSS運送種類</h3>
-<p>
+<p class="my-3 text-right">
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
@@ -29,9 +29,9 @@
             @Html.DisplayFor(modelItem => item.Fee)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ShipID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ShipID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ShipID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.ShipID }, new { @class = "btn btn-sm btn-info" }) 
+            @Html.ActionLink("Details", "Details", new { id=item.ShipID }, new { @class = "btn btn-sm btn-warning" }) 
+            @Html.ActionLink("Delete", "Delete", new { id=item.ShipID }, new { @class = "btn btn-sm btn-danger" })
         </td>
     </tr>
 }

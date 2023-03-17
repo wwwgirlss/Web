@@ -172,6 +172,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomeManagerController.cs" />
     <Compile Include="Controllers\LoginCheck.cs" />
+    <Compile Include="Controllers\LogReport.cs" />
     <Compile Include="Controllers\MemberOrderController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />

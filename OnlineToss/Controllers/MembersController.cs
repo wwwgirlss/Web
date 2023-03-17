@@ -36,12 +36,13 @@ namespace OnlineToss.Controllers
             return View(members);
         }
 
-        // GET: Members/Create
+        //GET: Members/Create
         public ActionResult Create()
         {
             ViewBag.BornTimeID = new SelectList(db.BornTimes, "BornTimeID", "BornTimeName");
             return View();
         }
+
 
         // POST: Members/Create
         // 若要避免過量張貼攻擊，請啟用您要繫結的特定屬性。
@@ -60,6 +61,35 @@ namespace OnlineToss.Controllers
             ViewBag.BornTimeID = new SelectList(db.BornTimes, "BornTimeID", "BornTimeName", members.BornTimeID);
             return View(members);
         }
+
+
+        // 在您的 Members 控制器中
+
+        //public ActionResult Create()
+        //{
+        //    ViewBag.BornTimeID = new SelectList(db.BornTimes, "BornTimeID", "BornTimeName");
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create([Bind(Include = "MemName,Gender,Phone,Address,Birthday,Email,Account,Password,BornTimeID")] Members members)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        members.MemID = db.getMemID();
+        //        db.Members.Add(members);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    ViewBag.BornTimeID = new SelectList(db.BornTimes, "BornTimeID", "BornTimeName", members.BornTimeID);
+        //    return View(members);
+        //}
+
+
+
+
 
         // GET: Members/Edit/5
         public ActionResult Edit(string id)
@@ -119,6 +149,8 @@ namespace OnlineToss.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
 
         protected override void Dispose(bool disposing)
         {

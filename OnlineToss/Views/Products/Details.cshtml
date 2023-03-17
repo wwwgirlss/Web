@@ -9,83 +9,85 @@
 <div>
     <h4>Products</h4>
     <hr />
-    <div class="card shadow">
-        <div class="card-body row">
-            <div class="col-6">
-                <div class="text-center">
-                    <div class="col-xs-4 text-center">
-                        <img src="@Url.Action("GetImage",new { id= Model.ProID})" width="150" />
+    <div class="card border-light shadow ">
+        <div class="card card-heading ">
+            <div class="card-body row">
+                <div class="col-6">
+                    <div class="text-center">
+                        <div class="col-xs-4 text-center">
+                            <img src="@Url.Action("GetImage",new { id= Model.ProID})" width="300" />
+                        </div>
                     </div>
                 </div>
+                @*<div class="col-xs-4 text-center">
+                        @Html.DisplayFor(model => model.Photo)
+                        <img src="@Url.Action("GetEmployeePhoto", new {id=Model.EmployeeID},)" />
+                    </div>*@
+
+                <div class="col-6  ">
+                    <div >
+                        @Html.DisplayNameFor(model => model.ProName)
+                    </div>
+
+                    <div>
+                        @Html.DisplayFor(model => model.ProName)
+                    </div>
+
+                    <div>
+                        @Html.DisplayNameFor(model => model.UnitPrice)
+                    </div>
+
+                    <div>
+                        @Html.DisplayFor(model => model.UnitPrice)
+                    </div>
+
+                    <div>
+                        @Html.DisplayNameFor(model => model.Quantity)
+                    </div>
+
+                    <div>
+                        @Html.DisplayFor(model => model.Quantity)
+                    </div>
+
+                    <div>
+                        @Html.DisplayNameFor(model => model.Categories.CaName)
+                    </div>
+
+                    <div>
+                        @Html.DisplayFor(model => model.Categories.CaName)
+                    </div>
+
+                    <div>
+                        @Html.DisplayNameFor(model => model.CreatedDate)
+                    </div>
+
+                    <div>
+                        @Html.DisplayFor(model => model.CreatedDate)
+                    </div>
+
+                </div>
+
+                @*<div class="col-6">
+                        <div class="text-center">
+                            <div>
+                                @Html.DisplayNameFor(model => model.Photo)
+                            </div>
+
+                            <div>
+                                @Html.DisplayFor(model => model.Photo)
+                            </div>
+
+                        </div>
+                    </div>*@
+
+
             </div>
-            @*<div class="col-xs-4 text-center">
-            @Html.DisplayFor(model => model.Photo)
-            <img src="@Url.Action("GetEmployeePhoto", new {id=Model.EmployeeID},)" />
-        </div>*@
-
-            <div class="col-6 ">
-                <div>
-                    @Html.DisplayNameFor(model => model.ProName)
-                </div>
-
-                <div>
-                    @Html.DisplayFor(model => model.ProName)
-                </div>
-
-                <div>
-                    @Html.DisplayNameFor(model => model.UnitPrice)
-                </div>
-
-                <div>
-                    @Html.DisplayFor(model => model.UnitPrice)
-                </div>
-
-                <div>
-                    @Html.DisplayNameFor(model => model.Quantity)
-                </div>
-
-                <div>
-                    @Html.DisplayFor(model => model.Quantity)
-                </div>
-
-                <div>
-                    @Html.DisplayNameFor(model => model.Categories.CaName)
-                </div>
-
-                <div>
-                    @Html.DisplayFor(model => model.Categories.CaName)
-                </div>
-
-                <div>
-                    @Html.DisplayNameFor(model => model.CreatedDate)
-                </div>
-
-                <div>
-                    @Html.DisplayFor(model => model.CreatedDate)
-                </div>
-
-            </div>
-
-            @*<div class="col-6">
-            <div class="text-center">
-                <div>
-                    @Html.DisplayNameFor(model => model.Photo)
-                </div>
-
-                <div>
-                    @Html.DisplayFor(model => model.Photo)
-                </div>
-
-            </div>
-        </div>*@
-
-
         </div>
     </div>
 </div>
-<div class="my-3 text-right">
-    <p>
-        @Html.ActionLink("我要修改", "Edit", new { id = Model.ProID }, new { @class = "btn btn-info" }) |
-        @Html.ActionLink("回商品列表", "Index")
-    </p>
-</div>
+    <div class="my-3 text-right">
+        <p>
+            @Html.ActionLink("我要修改", "Edit", new { id = Model.ProID }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("回商品列表", "Index")
+        </p>
+    </div>

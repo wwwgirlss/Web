@@ -27,13 +27,14 @@
             </div>
             <div class="mt-3">
                 <h4>
-                    <i class="bi bi-person-bounding-box"></i>     @*@Html.DisplayNameFor(model => model.Gender) :*@
+                    <i class="bi bi-person-bounding-box"></i>     @Html.DisplayNameFor(model => model.Gender) :
                     @{
                         var gender = Model.Gender == true ? "女性" : "男性";
                     }
                     @Html.DisplayFor(model => gender)
                 </h4>
             </div>
+           
 
             <hr />
 

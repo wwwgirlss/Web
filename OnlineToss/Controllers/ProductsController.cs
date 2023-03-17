@@ -171,19 +171,90 @@ namespace OnlineToss.Controllers
 
 
 
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit([Bind(Include = "ProID,CaID,ProName,UnitPrice,Quantity,Photo,CreatedDate")] Products products)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Entry(products).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    ViewBag.CaID = new SelectList(db.Categories, "CaID", "CaName", products.CaID);
+        //    return View(products);
+        //}
+
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProID,CaID,ProName,UnitPrice,Quantity,Photo,CreatedDate")] Products products)
+        public ActionResult Edit([Bind(Include = "ProID,CaID,ProName,UnitPrice,Quantity,Photo,CreatedDate")] Products products, HttpPostedFileBase img)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(products).State = EntityState.Modified;
+                if (img != null)
+                {
+                    if (img.ContentLength > 0)
+                    {
+                        if (img.ContentLength <= 5242880)
+                        {
+                            var PhotoType = img.ContentType;//取得圖片類型
+
+                            if (PhotoType == "image/jpg" || PhotoType == "image/png" || PhotoType == "image/jpeg")
+                            {
+                                products.Photo = new byte[img.ContentLength];
+                                img.InputStream.Read(products.Photo, 0, img.ContentLength);
+                                //products.ImageMimeType = imageMimeType;
+                                products.PhotoType = img.ContentType;
+                            }
+                            else
+                            {
+                                ViewBag.Message = "圖片類型不支持";
+                                return View(products);
+                            }
+                        }
+                        else
+                        {
+                            ViewBag.Message = "檔案大於5M";
+                            return View(products);
+                        }
+                    }
+                    else
+                    {
+                        ViewBag.Message = "您傳的一個空檔案";
+                        return View(products);
+                    }
+                }
+                else
+                {
+                    ViewBag.Message = "您沒有上傳任何檔案";
+                    return View(products);
+                }
+
+                db.Products.Add(products);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             ViewBag.CaID = new SelectList(db.Categories, "CaID", "CaName", products.CaID);
             return View(products);
         }
+
+
+        public FileContentResult GetImageEdit(string id)
+        {
+            var img = db.Products.Find(id);
+            if (img != null)
+            {
+                return File(img.Photo, "image/jpeg");
+            }
+
+            return null;
+        }
+
+
+
 
         // GET: Products/Delete/5
         public ActionResult Delete(string id)

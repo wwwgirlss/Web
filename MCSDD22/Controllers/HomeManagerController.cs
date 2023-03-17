@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace MCSDD22.Controllers
 {
+    
     public class HomeManagerController : Controller
     {
         MCSDD22Context db = new MCSDD22Context();

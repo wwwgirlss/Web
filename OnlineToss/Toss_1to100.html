@@ -53,9 +53,6 @@
                         <button>第08籤  </button>
                         <button>第09籤  </button>
                         <button>第10籤  </button>
-                    </div>
-                    <!--11-20-->
-                    <div class="col-3">
                         <button>第11籤  </button>
                         <button>第12籤  </button>
                         <button>第13籤  </button>
@@ -66,22 +63,20 @@
                         <button>第18籤  </button>
                         <button>第19籤  </button>
                         <button>第20籤  </button>
-                    </div>
-                    <!--21-30-->
-                    <div class="col-3">
                         <button>第21籤  </button>
                         <button>第22籤  </button>
                         <button>第23籤  </button>
                         <button>第24籤  </button>
                         <button>第25籤  </button>
+                    </div>
+                  
+                    <!--26-50-->
+                    <div class="col-3">
                         <button>第26籤  </button>
                         <button>第27籤  </button>
                         <button>第28籤  </button>
                         <button>第29籤  </button>
                         <button>第30籤  </button>
-                    </div>
-                    <!--31-40-->
-                    <div class="col-3">
                         <button>第31籤  </button>
                         <button>第32籤  </button>
                         <button>第33籤  </button>
@@ -92,9 +87,6 @@
                         <button>第38籤  </button>
                         <button>第39籤  </button>
                         <button>第40籤  </button>
-                    </div>
-                    <!--41-50-->
-                    <div class="col-3 ">
                         <button>第41籤  </button>
                         <button>第42籤  </button>
                         <button>第43籤  </button>
@@ -106,7 +98,8 @@
                         <button>第49籤  </button>
                         <button>第50籤  </button>
                     </div>
-                    <!--51-60-->
+                   
+                    <!--51-75-->
                     <div class="col-3">
                         <button>第51籤  </button>
                         <button>第52籤  </button>
@@ -118,9 +111,6 @@
                         <button>第58籤  </button>
                         <button>第59籤  </button>
                         <button>第60籤  </button>
-                    </div>
-                    <!--61-70-->
-                    <div class="col-3">
                         <button>第61籤  </button>
                         <button>第62籤  </button>
                         <button>第63籤  </button>
@@ -131,22 +121,19 @@
                         <button>第68籤  </button>
                         <button>第69籤  </button>
                         <button>第70籤  </button>
-                    </div>
-                    <!--71-80-->
-                    <div class="col-3">
                         <button>第71籤  </button>
                         <button>第72籤  </button>
                         <button>第73籤  </button>
                         <button>第74籤  </button>
                         <button>第75籤  </button>
+                    </div>
+                    <!--76-100-->
+                    <div class="col-3">
                         <button>第76籤  </button>
                         <button>第77籤  </button>
                         <button>第78籤  </button>
                         <button>第79籤  </button>
                         <button>第80籤  </button>
-                    </div>
-                    <!--81-90-->
-                    <div class="col-3">
                         <button>第81籤  </button>
                         <button>第82籤  </button>
                         <button>第83籤  </button>
@@ -157,9 +144,6 @@
                         <button>第88籤  </button>
                         <button>第89籤  </button>
                         <button>第90籤  </button>
-                    </div>
-                    <!--91-100-->
-                    <div class="col-3">
                         <button>第91籤  </button>
                         <button>第92籤  </button>
                         <button>第93籤  </button>
@@ -198,6 +182,9 @@
     $(document).ready(function () {
         var button = $('.button');
         var dice = $('.dice');
+        //if (dice != null) {
+        //    ul.innerHTML = "<li><a href='Tosses/Details/001'>" + name + "</a></li>";
+        //}
 
         button.on('click', function () {
             var randomNumber = Math.floor(Math.random() * 100) + 1;

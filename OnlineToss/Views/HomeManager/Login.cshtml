@@ -4,7 +4,10 @@
     ViewBag.Title = "Login";
     //Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="card card-header mt-5" style="left:300px; width:500px">
+
+
+
+<div class="card card-header mt-5 " style="left: 300px; width: 500px; border-radius: 20px ; ">
     @*----LOGO----*@
     <div class="navbar-header mt-5">
         <div type="button" class="navbar-toggle navbar-dark" data-toggle="collapse" data-target=".navbar-collapse">
@@ -19,14 +22,14 @@
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-horizontal"  method="post" uiactions="@Url.Action("Login")">
+        <div class="form-horizontal" method="post" uiactions="@Url.Action("Login")">
             <h4></h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
                 @Html.LabelFor(model => model.Account, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Account, new { htmlAttributes = new { @class = "form-control", placeholder = "請輸入帳號" } })
+                    @Html.EditorFor(model => model.Account, new { htmlAttributes = new { @class = "form-control", placeholder = "請輸入您的帳號" } })
                     @Html.ValidationMessageFor(model => model.Account, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -34,17 +37,18 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "請輸入您的密碼" } })
                     @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                 </div>
             </div>
 
-            <div class="form-group center" style="position:center">
+            <div class="form-group center" >
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="登入" class="btn btn-dark" />
-                    <input id="Reset1" type="reset" value="清除" class="btn btn-outline-dark" />
+                    <input type="submit" value="登入" class="btn btn-dark"/>
+                    <input id="Reset1" type="reset" value="清除" class="btn btn-outline-dark"  />
                 </div>
             </div>
+
             <div class="text-danger">
                 @ViewBag.ErrMsg
             </div>

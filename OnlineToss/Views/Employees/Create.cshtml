@@ -6,7 +6,8 @@
 }
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 <script src="https://unpkg.com/gijgo@1.9.11/js/gijgo.min.js" type="text/javascript"></script>
 <link href="https://unpkg.com/gijgo@1.9.11/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
@@ -54,9 +55,9 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-9 nav-item dropdown-item center">
+            <div class="col-md-10 ">
                 <div>
-                    <div class="col-md-offset-3" style="width:270px">@Html.DropDownListFor(model => model.Gender, new SelectList(new[] { new { Text = "男生", Value = false }, new { Text = "女生", Value = true } }, "Value", "Text"), "--請選擇--", htmlAttributes: new { @class = "form-control" }) </div>
+                    <div >@Html.DropDownListFor(model => model.Gender, new SelectList(new[] { new { Text = "男生", Value = false }, new { Text = "女生", Value = true } }, "Value", "Text"), "--請選擇--", htmlAttributes: new { @class = "form-control" }) </div>
                     @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -90,7 +91,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Birthday, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Birthday, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Birthday, new { htmlAttributes = new { @class = "form-control", @id = "datepicker" } })
                 @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -105,14 +106,11 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Bdate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-3">
-                @Html.EditorFor(model => model.Bdate, new { htmlAttributes = new { @class = "form-control", @id = "datepicker" } })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Bdate, new { htmlAttributes = new { @class = "form-control", @id = "datepicker1" } })
                 @Html.ValidationMessageFor(model => model.Bdate, "", new { @class = "text-danger" })
             </div>
         </div>
-
-
-
 
         <div class="form-group">
             @Html.LabelFor(model => model.Notes, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -172,7 +170,25 @@
         format: 'yyyy/mm/dd',
         uiLibrary: 'bootstrap'
     });
-</script>
+
+    $('#datepicker1').datepicker({
+        format: 'yyyy/mm/dd',
+        uiLibrary: 'bootstrap'
+    });
+
+
+
+        ////$('#datepicker1').datepicker({
+        ////    locale: 'zh-tw',
+        ////    format: 'yyyy/mm/dd',
+        ////    weekStartDay: 0,
+        ////    minDate: function () {
+        ////        //前一天
+        ////        return new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() - 1);
+        ////    },
+        ////    uiLibrary: 'bootstrap'
+        ////});
+    </script>
 
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>

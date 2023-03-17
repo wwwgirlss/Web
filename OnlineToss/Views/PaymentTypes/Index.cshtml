@@ -6,7 +6,7 @@
 
 
 <h3 class="mt-3">TOSS付款種類</h3>
-<p>
+<p class="my-3 text-right">
     @Html.ActionLink("新增付款種類", "Create")
 </p>
 <table class="table text-center">
@@ -32,9 +32,9 @@
             @Html.DisplayFor(modelItem => item.PayName)
         </td>
         <td>
-            @Html.ActionLink("修改", "Edit", new { id = item.PayID }) |
-            @Html.ActionLink("詳細", "Details", new { id = item.PayID }) |
-            @Html.ActionLink("刪除", "Delete", new { id = item.PayID })
+            @Html.ActionLink("修改", "Edit", new { id = item.PayID }, new { @class = "btn btn-sm btn-info" }) 
+            @Html.ActionLink("詳細", "Details", new { id = item.PayID }, new { @class = "btn btn-sm btn-warning" }) 
+            @Html.ActionLink("刪除", "Delete", new { id = item.PayID }, new { @class = "btn btn-sm btn-danger" })
         </td>
     </tr>
 }

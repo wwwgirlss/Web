@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using MCSDD22.Controllers;
+using System.Web;
 using System.Web.Mvc;
 
 namespace MCSDD22
@@ -11,6 +12,8 @@ namespace MCSDD22
             {
                 View = "Error2"
             }); ;
+
+            filters.Add(new LogReport());
         }
     }
 }

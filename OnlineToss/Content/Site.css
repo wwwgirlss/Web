@@ -1,6 +1,15 @@
-﻿body {
+﻿/*body {*/
+    /*background-color: rgba(0, 0, 0, 0.5);*/
     /*padding-top: 50px;
     padding-bottom: 20px;*/
+/*}*/
+body {
+    /*display: flex;*/
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient( #F0F0F0,#8F0000,#850000);
+    font-family: fantasy,LiHei Pro
 }
 
 /* Set padding to keep content from hitting the edges */

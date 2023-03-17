@@ -97,8 +97,6 @@ namespace MCSDD22.Controllers
 
             string sql = "update members set MemberName=@MemberName, MemberBirthday=@MemberBirthday where MemberID=@MemberID";
 
-
-
             List<SqlParameter> list = new List<SqlParameter>
             {
                 new SqlParameter("MemberID",members.MemberID),
@@ -114,9 +112,8 @@ namespace MCSDD22.Controllers
             catch (Exception ex)
             {
                 ViewBag.Msg = ex.Message;
-                return View(members);
+                return RedirectToAction("Index", members);
             }
-
 
             //    if (ModelState.IsValid)
             //    {
