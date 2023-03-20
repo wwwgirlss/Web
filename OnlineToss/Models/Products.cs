@@ -11,7 +11,9 @@ namespace OnlineToss.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Products
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,13 +21,26 @@ namespace OnlineToss.Models
         {
             this.OrderDetails = new HashSet<OrderDetails>();
         }
-    
+
+        [Key]
+        [DisplayName("商品編號")]
         public string ProID { get; set; }
+
+        [DisplayName("類別")]
         public string CaID { get; set; }
+
+        [DisplayName("商品名稱")]
         public string ProName { get; set; }
+
+        [DisplayName("價格")]
         public Nullable<decimal> UnitPrice { get; set; }
+        [DisplayName("數量")]
         public int Quantity { get; set; }
+
+        [DisplayName("圖片")]
         public byte[] Photo { get; set; }
+
+        [DisplayName("建立日期")]
         public System.DateTime CreatedDate { get; set; }
     
         public virtual Categories Categories { get; set; }

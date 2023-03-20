@@ -11,7 +11,9 @@ namespace OnlineToss.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Categories
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,8 +21,12 @@ namespace OnlineToss.Models
         {
             this.Products = new HashSet<Products>();
         }
-    
+
+        
+        [DisplayName("編號")]
         public string CaID { get; set; }
+
+        [DisplayName("類別")]
         public string CaName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

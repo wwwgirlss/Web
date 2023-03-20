@@ -11,14 +11,28 @@ namespace OnlineToss.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class OrderDetails
     {
+        
+        [DisplayName("訂單編號")]
         public string OrderID { get; set; }
+
+        [DisplayName("商品編號")]
         public string ProID { get; set; }
+
+        [DisplayName("價格")]
         public Nullable<decimal> Price { get; set; }
+
+        [DisplayName("數量")]
         public Nullable<int> Qty { get; set; }
+
+        [DisplayName("運費")]
         public Nullable<decimal> Fee { get; set; }
+
+        [DisplayName("小計")]
         public Nullable<decimal> Amount { get; set; }
     
         public virtual Orders Orders { get; set; }

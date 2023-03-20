@@ -11,7 +11,9 @@ namespace OnlineToss.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class ShippingMethod
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,9 +21,15 @@ namespace OnlineToss.Models
         {
             this.Orders = new HashSet<Orders>();
         }
-    
+
+        [Key]
+        [DisplayName("編號")]
         public string ShipID { get; set; }
+
+        [DisplayName("運送名稱")]
         public string ShipName { get; set; }
+
+        [DisplayName("運費")]
         public Nullable<decimal> Fee { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

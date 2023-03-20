@@ -11,16 +11,27 @@ namespace OnlineToss.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class Toss
     {
+        [DisplayName("編  號")]
         public string TossID { get; set; }
+
+        [DisplayName("詩  籤")]
         public string TossName { get; set; }
+
+        [DisplayName("詩籤內容")]
         public string Content { get; set; }
+        [DisplayName("詩　意")]
         public string Poetry { get; set; }
+        [DisplayName("解 曰")]
         public string Explain { get; set; }
+        [DisplayName("解　說")]
         public string Description { get; set; }
+        [DisplayName("解 曰")]
         public byte[] TPhoto { get; set; }
+        [DisplayName("解 曰")]
         public string PhotoPath { get; set; }
     }
 }

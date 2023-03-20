@@ -11,7 +11,9 @@ namespace OnlineToss.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Orders
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,15 +21,40 @@ namespace OnlineToss.Models
         {
             this.OrderDetails = new HashSet<OrderDetails>();
         }
-    
+
+        [Key]
+        [DisplayName("訂單編號")]
         public string OrderID { get; set; }
+
+        [DisplayName("會員編號")]
         public string MemID { get; set; }
+
+        [DisplayName("訂單成立時間")]
+        [DataType(DataType.DateTime)]
+        [Required]
         public System.DateTime OrderDate { get; set; }
+
+        [DisplayName("付款方式")]
         public string PayID { get; set; }
+
+        [DisplayName("運送方式")]
         public string ShipID { get; set; }
+
+        [DisplayName("收件地址")]
+        [Required(ErrorMessage = "請填寫收貨人地址")]
+        [StringLength(40, ErrorMessage = "收貨人地址最多100字")]
         public string ShipAdd { get; set; }
+
+        [DisplayName("收件姓名")]
+        [Required(ErrorMessage = "請填寫收貨人姓名")]
+        [StringLength(40, ErrorMessage = "收貨人姓名最多40字")]
         public string ShipName { get; set; }
+
+        [DisplayName("出貨日")]
+        [DataType(DataType.DateTime)]
         public Nullable<System.DateTime> ShipDate { get; set; }
+
+        [DisplayName("服務員工")]
         public string EmpID { get; set; }
     
         public virtual Employees Employees { get; set; }
