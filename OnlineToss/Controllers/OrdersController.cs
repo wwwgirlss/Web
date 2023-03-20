@@ -7,12 +7,16 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using OnlineToss.Models;
+using System.Data.SqlClient;
 
 namespace OnlineToss.Controllers
 {
+    [LoginCheck(id = 1)]
     public class OrdersController : Controller
     {
-        private testpro2Entities db = new testpro2Entities();
+        public testpro2Entities db = new testpro2Entities();
+        
+
 
         // GET: Orders
         public ActionResult Index()
@@ -39,6 +43,8 @@ namespace OnlineToss.Controllers
         // GET: Orders/Create
         public ActionResult Create()
         {
+            var result = db.Database.SqlQuery<string>("SELECT dbo.getOrderID()").FirstOrDefault();
+
             ViewBag.EmpID = new SelectList(db.Employees, "EmpID", "EmpName");
             ViewBag.MemID = new SelectList(db.Members, "MemID", "MemName");
             ViewBag.PayID = new SelectList(db.PaymentType, "PayID", "PayName");
@@ -51,10 +57,29 @@ namespace OnlineToss.Controllers
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OrderID,MemID,OrderDate,PayID,ShipID,ShipAdd,ShipName,ShipDate,EmpID")] Orders orders)
+        public ActionResult Create([Bind(Include = "OrderID,MemID,OrderDate,PayID,ShipID,ShipAdd,ShipName,ShipDate,EmpID")] Orders orders, string connectionString)
         {
             if (ModelState.IsValid)
             {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    var command = new SqlCommand("getOrderID", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    SqlParameter outputParameter = new SqlParameter();
+                    outputParameter.ParameterName = "@orderId";
+                    outputParameter.SqlDbType = SqlDbType.Int;
+                    outputParameter.Direction = ParameterDirection.Output;
+                    command.Parameters.Add(outputParameter);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    int orderId = (int)outputParameter.Value;
+
+                    // 使用 orderId 新增資料
+                }
+
+
                 db.Orders.Add(orders);
                 db.SaveChanges();
                 return RedirectToAction("Index");

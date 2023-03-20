@@ -4,17 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="46fec285c88448ea8e3a3c314b030750" Name="Diagram1">
+      <Diagram DiagramId="1190ed03c9a84ac18c8cfacd82fa99a0" Name="Diagram1">
         <EntityTypeShape EntityType="testpro2Model.BornTimes" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="testpro2Model.Categories" Width="1.5" PointX="10.375" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="testpro2Model.Employees" Width="1.5" PointX="0.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="testpro2Model.Categories" Width="1.5" PointX="3" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="testpro2Model.Employees" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="testpro2Model.Members" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="testpro2Model.OrderDetails" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="testpro2Model.Orders" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="testpro2Model.PaymentType" Width="1.5" PointX="2.25" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="testpro2Model.Products" Width="1.5" PointX="7.875" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="testpro2Model.ShippingMethod" Width="1.5" PointX="4" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="testpro2Model.Toss" Width="1.5" PointX="6" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="testpro2Model.PaymentType" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="testpro2Model.Products" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="testpro2Model.ShippingMethod" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="testpro2Model.Toss" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
         <AssociationConnector Association="testpro2Model.FK_Members_BornTimes" ManuallyRouted="false" />
         <AssociationConnector Association="testpro2Model.FK_Products_Categories" ManuallyRouted="false" />
         <AssociationConnector Association="testpro2Model.FK_Orders_Employees" ManuallyRouted="false" />

@@ -12,7 +12,7 @@ using System.Configuration;//讀取Web.config
 
 namespace OnlineToss.Controllers
 {
-    [LoginCheck]
+    //[LoginCheck]
     public class HomeManagerController : Controller
     {
         testpro2Entities db = new testpro2Entities();

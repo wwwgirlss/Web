@@ -156,6 +156,13 @@
     <Content Include="photo\TOSSLOGO150.png" />
     <Content Include="photo\toss_remove.png" />
     <Content Include="photo\toss_remove50.png" />
+    <EntityDeploy Include="Models\OnlineTossModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OnlineTossModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\OnlineTossModel.edmx.diagram">
+      <DependentUpon>OnlineTossModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\demo.js" />
@@ -188,13 +195,6 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <EntityDeploy Include="Models\OnlineTossModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>OnlineTossModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\OnlineTossModel.edmx.diagram">
-      <DependentUpon>OnlineTossModel.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -316,6 +316,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomeManagerController.cs" />
     <Compile Include="Controllers\LoginCheck.cs" />
+    <Compile Include="Controllers\MemberOrderController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\OrderDetailsController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
@@ -329,6 +330,7 @@
     <Compile Include="Models\BornTimes.cs">
       <DependentUpon>OnlineTossModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\BR.cs" />
     <Compile Include="Models\Categories.cs">
       <DependentUpon>OnlineTossModel.tt</DependentUpon>
     </Compile>
@@ -365,6 +367,7 @@
     <Compile Include="Models\Products.cs">
       <DependentUpon>OnlineTossModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\setData.cs" />
     <Compile Include="Models\ShippingMethod.cs">
       <DependentUpon>OnlineTossModel.tt</DependentUpon>
     </Compile>
@@ -416,6 +419,12 @@
     <Content Include="Views\HomeManager\Login.cshtml" />
     <Content Include="Views\HomeManager\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Display.cshtml" />
+    <Content Include="Views\Tosses\PlayToss.cshtml" />
+    <Content Include="Views\Home\MyCart.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\MemberOrder\Order.cshtml" />
+    <Content Include="Views\MemberOrder\MyOrderList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

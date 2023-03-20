@@ -15,7 +15,7 @@
         <th>
             @Html.DisplayNameFor(model => model.TossName)
         </th>
-        <th>
+        <th class="text-truncate">
             @Html.DisplayNameFor(model => model.Content)
         </th>
         @*<th>
@@ -42,7 +42,7 @@
             @Html.DisplayFor(modelItem => item.TossName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Content)
+            @Html.DisplayFor(modelItem => item.Content, new { @class = "text-truncate" })
         </td>
         @*<td>
             @Html.DisplayFor(modelItem => item.Poetry)

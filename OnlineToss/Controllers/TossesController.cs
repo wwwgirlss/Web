@@ -20,6 +20,23 @@ namespace OnlineToss.Controllers
             return View(db.Toss.ToList());
         }
 
+
+        public ActionResult PlayToss(string id)
+        {
+
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            var toss = db.Toss.Find(id);
+
+            if (toss == null)
+                return HttpNotFound();
+
+            return View(toss);
+        }
+
+
+
         // GET: Tosses/Details/5
         public ActionResult Details(string id)
         {
@@ -114,6 +131,9 @@ namespace OnlineToss.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        
+
 
         protected override void Dispose(bool disposing)
         {

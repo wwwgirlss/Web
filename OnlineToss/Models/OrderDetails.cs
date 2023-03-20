@@ -11,33 +11,14 @@ namespace OnlineToss.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class OrderDetails
     {
-        [Key]
-        [DisplayName ("訂單編號")]
-        [Required(ErrorMessage = "請填寫訂單編號")]
         public string OrderID { get; set; }
-
-        [DisplayName("商品編號")]
-        [Required(ErrorMessage = "請填寫商品編號")]
         public string ProID { get; set; }
-
-        [DisplayName("商品售價")]
-        [Required(ErrorMessage = "請填寫商品售價")]
-        public decimal Price { get; set; }
-
-        [DisplayName("商品數量")]
-        [Required(ErrorMessage = "請填寫商品數量")]
-        public int Qty { get; set; }
-
-        [DisplayName("運費")]
-        
+        public Nullable<decimal> Price { get; set; }
+        public Nullable<int> Qty { get; set; }
         public Nullable<decimal> Fee { get; set; }
-
-        [DisplayName("小計")]
         public Nullable<decimal> Amount { get; set; }
     
         public virtual Orders Orders { get; set; }

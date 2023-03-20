@@ -1,0 +1,55 @@
+﻿@model OnlineToss.Models.Products
+
+@{
+    ViewBag.Title = "Display";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h2>Display</h2>*@
+
+<div class="card shadow mt-5" href="@Url.Action("Display", new { id=Model.ProID})">
+    <div class="row">
+        <div class="col-md-5 text-center">
+            <img src="@Url.Action("GetImage","Products",new { id=Model.ProID})" class="img-thumbnail m-4 " width="400"/>
+        </div>
+        <div class="col-md-7">
+            <div class="card-body">
+                <h4 class="text-dark"><strong>@Model.ProName</strong></h4>
+                <p class="text-dark">
+                    <br>
+                    光明燈：點亮光明、前途光明。<br>
+                    太歲燈：本命生肖與值年太歲相沖或對沖、偏沖，因此需「安太歲」，以祈求流年平安、諸事順遂。<br>
+                    媽祖燈：保佑闔家平安，保佑前途光明。<br>
+                    文昌燈：登科及第、考運亨通。除了讀書人外，上班族則可祈求工作升遷、仕途如意。<br>
+                    發財燈、財神燈：財運亨通、財源廣進、事業騰達、營運順利。<br>
+                    姻緣燈：千里姻緣、一線牽成。除了招桃花外，已婚夫妻也可促進感情升溫、恩愛合和。<br>
+                    平安燈：鎮宅、闔家康寧。<br>
+                    拜斗燈：藉由「禮斗」天人感應，祈求驅邪押煞、延命保安；保佑事業駿發、投資倍利。<br>
+                </p>
+                @*<p class="text-black-50 text-right">原價:<span style="text-decoration:line-through">@(Model.UnitPrice*5)</span></p>*@
+                <h2 class="text-danger text-right"><strong>@Html.DisplayFor(modelItem => Model.UnitPrice)</strong></h2>
+                <h3 class="text-right">
+                    <i class="bi bi-heart-fill text-danger" data-toggle="tooltip" data-placement="bottom" title="加入追蹤"></i>
+                    <i class="bi bi-cart-plus-fill text-primary" data-toggle="tooltip" data-placement="bottom" title="放入購物車"></i>
+                    <i class="bi bi-bucket text-dark" data-toggle="tooltip" data-placement="bottom" title="直接購買"></i>
+                </h3>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<div class="text-right mt-5  ">
+    <a href="@Url.Action("Index")" class=""><i class="bi bi-arrow-return-right "></i> 返回商品主頁</a>
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+}

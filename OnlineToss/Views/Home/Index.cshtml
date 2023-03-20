@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="p-2">
-                    <p><button class="btn btn-dark btn-block addCart">加入購物車 <i class="bi bi-cart2"></i></button></p>
+                    <p><button class="btn btn-dark btn-block addCart">加入購物車 <i class="bi bi-cart-plus"></i></button></p>
                 </div>
             </div>
         </div>
@@ -70,6 +70,16 @@
 
     @*//迴圈裡面取ID要通通不一樣///寫class可以很多個//要抓的通通設class*@    @*//會讀helper@Html.DisplayFor //不會讀helper@item.UnitPrice*@
 </div>
+
+<span id="MyCart">
+
+    <a href="@Url.Action("MyCart")">
+        <i class="bi bi-cart-plus-fill"></i>
+        <span class="badge  text-white " style="font-size:1.3rem"></span>
+    </a>
+
+
+</span>
 
 @section css{
     <style>
@@ -92,4 +102,73 @@
                 font-size: 1rem;
             }
     </style>
+}
+
+@*購物車JS寫法*@
+@section scripts{
+    <script>
+        var cart = [];
+
+        if (localStorage.getItem("cart")) {
+            cart = JSON.parse(localStorage.getItem("cart"));
+        }
+
+        $('#MyCart .badge').text(cart.length);//購物小車新增時數字跳變
+
+        $('.addCart').click(function () {
+            let product = $(this).closest('.card');
+            let newPID = product.find('.PID').val();
+
+            let foundItem = cart.find(item => item.PID == newPID);
+
+            if (foundItem === undefined) {
+                setCart(product);
+            }
+            else {
+                foundItem.Amount += 1;
+                alert("購物車已更新");
+            }
+
+
+            //底下寫地太冗長了,改個寫法
+            //if (cart.length > 0) {
+            //    for (let i in cart) {
+            //        if (cart[i]["PID"] == newPID) {
+            //            //代表此商品已經在購物車中,因此將數量加1
+            //            cart[i]["Amount"] += 1;
+            //            alert("商品數量已更新");
+            //            break;
+            //        }
+            //        else if (cart.length-1 == i) {
+            //            setCart(product);
+            //        }
+            //    }
+            //}
+            //else {
+            //    setCart(product);
+            //}
+
+            console.log(cart);
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+        })
+        function setCart(product) {
+            let newItem = {
+                PID: product.find('.PID').val(),
+                PName: product.find('.PName').text(),
+                Price: product.find('.Price').attr('p'),
+                Amount: 1
+            }
+
+            cart.push(newItem);
+            $('#MyCart .badge').text(cart.length); //購物小車新增時數字跳變
+            //存在網頁空間//F5就會消失
+            alert("您已加入一件商品");
+
+
+        }
+    </script>
+
+
 }

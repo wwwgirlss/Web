@@ -11,9 +11,7 @@ namespace OnlineToss.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class BornTimes
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,13 +19,8 @@ namespace OnlineToss.Models
         {
             this.Members = new HashSet<Members>();
         }
-
-        [DisplayName("時辰編號")]
-        [Required(ErrorMessage = "請填寫時辰編號")]
+    
         public string BornTimeID { get; set; }
-
-        [DisplayName("時辰")]
-        [Required(ErrorMessage = "請填寫時辰")]
         public string BornTimeName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

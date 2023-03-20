@@ -1,0 +1,94 @@
+﻿@model IEnumerable<OnlineToss.Models.Orders>
+
+@{
+    ViewBag.Title = "MyOrderList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var cartFlag = 0;
+
+    if (TempData["cartFlag"] != null)
+    {
+        cartFlag = 1;
+    }
+
+}
+
+<h2>MyOrderList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShipAdd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShipName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShipDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employees.EmpName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Members.MemName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentType.PayName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShippingMethod.ShipName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShipAdd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShipName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShipDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employees.EmpName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Members.MemName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentType.PayName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShippingMethod.ShipName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.OrderID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.OrderID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.OrderID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<script>
+    //把購物車清空
+if (@cartFlag===1)
+{
+    localStorage.removeItem("cart");
+}
+</script>
+

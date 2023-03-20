@@ -59,8 +59,8 @@
           </Key>
           <Property Name="OrderID" Type="char" MaxLength="12" Nullable="false" />
           <Property Name="ProID" Type="char" MaxLength="6" Nullable="false" />
-          <Property Name="Price" Type="money" Nullable="false" />
-          <Property Name="Qty" Type="int" Nullable="false" />
+          <Property Name="Price" Type="money" />
+          <Property Name="Qty" Type="int" />
           <Property Name="Fee" Type="money" />
           <Property Name="Amount" Type="money" />
         </EntityType>
@@ -75,7 +75,7 @@
           <Property Name="ShipID" Type="char" MaxLength="3" />
           <Property Name="ShipAdd" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="ShipName" Type="nvarchar" MaxLength="40" Nullable="false" />
-          <Property Name="ShipDate" Type="datetime" Nullable="false" />
+          <Property Name="ShipDate" Type="datetime" />
           <Property Name="EmpID" Type="char" MaxLength="6" />
         </EntityType>
         <EntityType Name="PaymentType">
@@ -322,8 +322,8 @@
           </Key>
           <Property Name="OrderID" Type="String" MaxLength="12" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="ProID" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="Qty" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Qty" Type="Int32" />
           <Property Name="Fee" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="Orders" Relationship="Self.FK_OrderDetails_Orders" FromRole="OrderDetails" ToRole="Orders" />
@@ -340,7 +340,7 @@
           <Property Name="ShipID" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
           <Property Name="ShipAdd" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ShipName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ShipDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ShipDate" Type="DateTime" Precision="3" />
           <Property Name="EmpID" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="Employees" Relationship="Self.FK_Orders_Employees" FromRole="Orders" ToRole="Employees" />
           <NavigationProperty Name="Members" Relationship="Self.FK_Orders_Members" FromRole="Orders" ToRole="Members" />
@@ -488,7 +488,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="testpro2Entities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="testpro2Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BornTimes" EntityType="Self.BornTimes" />
           <EntitySet Name="Categories" EntityType="Self.Categories" />
           <EntitySet Name="Employees" EntityType="Self.Employees" />
@@ -537,7 +537,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="testpro2ModelStoreContainer" CdmEntityContainer="testpro2Entities2">
+        <EntityContainerMapping StorageEntityContainer="testpro2ModelStoreContainer" CdmEntityContainer="testpro2Entities">
           <EntitySetMapping Name="BornTimes">
             <EntityTypeMapping TypeName="testpro2Model.BornTimes">
               <MappingFragment StoreEntitySet="BornTimes">

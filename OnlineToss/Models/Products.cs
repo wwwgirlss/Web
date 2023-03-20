@@ -11,9 +11,7 @@ namespace OnlineToss.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Products
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,43 +19,18 @@ namespace OnlineToss.Models
         {
             this.OrderDetails = new HashSet<OrderDetails>();
         }
-
-        [Key]
-        [DisplayName ("商品編號")]
-        [Required(ErrorMessage = "請填寫商品編號")]
+    
         public string ProID { get; set; }
-
-        [DisplayName("類別編號")]
-        [Required(ErrorMessage = "請選擇類別編號")]
         public string CaID { get; set; }
-
-        [DisplayName("商品名稱")]
-        [Required(ErrorMessage = "請填寫商品名稱")]
         public string ProName { get; set; }
-
-        [DisplayName("價格")]
-        [Required(ErrorMessage = "請填寫商品價格")]
         public Nullable<decimal> UnitPrice { get; set; }
-
-        [DisplayName("數量")]
-        [Required(ErrorMessage = "請填寫商品售價")]
         public int Quantity { get; set; }
-
-        [DisplayName("商品照片")]
         public byte[] Photo { get; set; }
-
-        [DisplayName("建立日期")]
-        [Required(ErrorMessage = "請填寫建立日期")]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [DataType(DataType.DateTime)]
         public System.DateTime CreatedDate { get; set; }
-
-        [DisplayName("類別")]
-
+    
         public virtual Categories Categories { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetails> OrderDetails { get; set; }
-        public string ImageMimeType { get; internal set; }
-        public object PhotoType { get; internal set; }
+        public string PhotoType { get; internal set; }
     }
 }

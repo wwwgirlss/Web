@@ -13,8 +13,8 @@
         <div class="card-body row">
             <div class="col-6 ">
                 @*<strong >
-                        @Html.DisplayNameFor(model => model.TossName)
-                    </strong>*@
+            @Html.DisplayNameFor(model => model.TossName)
+        </strong>*@
 
                 <p class="text-center">
                     <strong style="font-size:2rem">
@@ -51,13 +51,17 @@
                     @Html.DisplayNameFor(model => model.Description)
                 </strong>
 
-                @*<p>
-                        @Html.DisplayFor(model => model.Description)
-                    </p>*@
-                <div class="col-xs-12" style="margin-top:20px">
-                    <p>@Html.Raw(Model.Description.ToString().Replace("\r\n", "<br>"))</p>
+                <strong>
+                    @Html.DisplayNameFor(model => model.Description.ToString().Replace("\r\n", "<br>"))
+                </strong>
 
-                </div>
+                @*<p>
+            @Html.DisplayFor(model => model.Description)
+        </p>*@
+                @*<div class="col-xs-12" style="margin-top:20px">
+            <p>@Html.Raw(Model.Description.ToString().Replace("\r\n", "<br>"))</p>
+
+        </div>*@
 
             </div>
 

@@ -11,9 +11,7 @@ namespace OnlineToss.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Members
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,52 +19,19 @@ namespace OnlineToss.Models
         {
             this.Orders = new HashSet<Orders>();
         }
-
-        [Key]
-        [DisplayName("會員編號")]
-        [StringLength(6, ErrorMessage = "會員編號為M_____六位數")]
-        //[Required(ErrorMessage = "請填寫會員編號")]
+    
         public string MemID { get; set; }
-
-        [DisplayName("會員姓名")]
-        [StringLength(40, ErrorMessage = "會員姓名不可超過40字")]
-        //[Required(ErrorMessage = "請填寫會員姓名")]
         public string MemName { get; set; }
-        [DisplayName("性別")]
         public bool Gender { get; set; }
-
-        [DisplayName("電話")]
         public string Phone { get; set; }
-
-        [DisplayName("地址")]
         public string Address { get; set; }
-
-        [DisplayName("生日")]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [DataType(DataType.DateTime)]
         public System.DateTime Birthday { get; set; }
-        
-        [DisplayName("出生時辰")]
-        public string BornTimeID { get; set; }
-
-        [DisplayName("郵箱")]
         public string Email { get; set; }
-
-        [DisplayName("帳號")]
-        [Required(ErrorMessage = "請填寫帳號")]
-        [StringLength(20, ErrorMessage = "帳號不可以超過20字")]
         public string Account { get; set; }
-
-        [DisplayName("密碼")]
-        [Required(ErrorMessage = "請填寫密碼")]
-        [DataType(DataType.Password)]
         public string Password { get; set; }
-
-
-        //[DisplayName("出生時辰")]
-        //[Required(ErrorMessage = "請填選出生時辰")]
+        public string BornTimeID { get; set; }
+    
         public virtual BornTimes BornTimes { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Orders> Orders { get; set; }
     }
