@@ -37,14 +37,16 @@
                 <input type="submit" value="登入" class="btn btn-light" />
                 <span class="text-white">@ViewBag.ErrMsg</span>
             </div>
+
+            <div class="text-center">
+                @Html.ActionLink("回上一頁", "Index", new { @class = "text-decoration-none, text-white" })
+            </div>
         </div>
     </div>
 
 }
 
-<div>
-    @Html.ActionLink("回上一頁", "Index")
-</div>
+
 @section scripts {
 
     <script src="~/Scripts/jquery.validate.min.js"></script>

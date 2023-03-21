@@ -12,83 +12,96 @@
     }
 
 }
+@foreach (var item in Model)
+{
+    <h2>@Html.DisplayFor(modelItem => item.Members.MemName) 的OrderList </h2>
+}
+    @*<p>
+            @Html.ActionLink("Create New", "Create")
+        </p>*@
+    <table class="table table-striped table-hover text-center">
+        <tr class="table bg-light text-center">
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShipAdd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShipName)
+            </th>
 
-<h2>MyOrderList</h2>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Members.MemName)*@
+                訂購人
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.PaymentType.PayName)*@
+                付款方式
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.ShippingMethod.ShipName)*@
+                運送方式
+            </th>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.OrderDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShipAdd)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShipName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShipDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Employees.EmpName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Members.MemName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PaymentType.PayName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShippingMethod.ShipName)
-        </th>
-        <th></th>
-    </tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Employees.EmpName)*@
+                服務人員
+            </th>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShipAdd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShipName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShipDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Employees.EmpName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Members.MemName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PaymentType.PayName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShippingMethod.ShipName)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.OrderID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.OrderID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.OrderID })
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.ShipDate)
+            </th>
+
+
+            <th></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr class="text-center">
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShipAdd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShipName)
+                </td>
 
-<script>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Members.MemName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaymentType.PayName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShippingMethod.ShipName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employees.EmpName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShipDate)
+                </td>
+
+
+                <td>
+                    @*@Html.ActionLink("修改", "Edit", new { id = item.OrderID }) |*@
+                    @Html.ActionLink("查看訂單", "Details", new { id = item.OrderID }, new { id = item.MemID }) |
+                    @Html.ActionLink("取消訂單", "Delete", new { id = item.OrderID })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <script>
     //把購物車清空
 if (@cartFlag===1)
 {
     localStorage.removeItem("cart");
 }
-</script>
+    </script>
 

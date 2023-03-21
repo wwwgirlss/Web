@@ -70,6 +70,21 @@ namespace OnlineToss.Controllers
             return View(product);
         }
 
+        //public ActionResult DisplayByTitle(string title)
+        //{
+
+        //    if (title == null)
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+        //    //var Title = Server.UrlDecode(title);
+        //    var product = db.Products.Where(p => p.ProName == Title).FirstOrDefault();
+
+        //    if (product == null)
+        //        return HttpNotFound();
+
+        //    return View("Display", product);
+        //}
+
         public ActionResult MyCart()
         {
             return View();

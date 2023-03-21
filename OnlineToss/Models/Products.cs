@@ -33,7 +33,12 @@ namespace OnlineToss.Models
         public string ProName { get; set; }
 
         [DisplayName("價格")]
+        [Required(ErrorMessage = "請輸入商品單價")]
+        [Range(0, short.MaxValue, ErrorMessage = "單價不可小於0")]
+        [DisplayFormat(DataFormatString = "{0:C0}", ApplyFormatInEditMode = true)]//{0:C0 }
+        /*public short UnitPrice { get; set; }*/ ////外幣用decmail會有角分 //{0:C}去掉0 //short因為台幣沒有小數點
         public Nullable<decimal> UnitPrice { get; set; }
+
         [DisplayName("數量")]
         public int Quantity { get; set; }
 
@@ -41,6 +46,8 @@ namespace OnlineToss.Models
         public byte[] Photo { get; set; }
 
         [DisplayName("建立日期")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.DateTime)]
         public System.DateTime CreatedDate { get; set; }
     
         public virtual Categories Categories { get; set; }

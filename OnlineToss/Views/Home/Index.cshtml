@@ -53,7 +53,7 @@
         <div class="col-md-3 p-1">
             <div class="card border-light shadow h-100">
                 <div class="card-body text-center">
-                    <a href="@Url.Action("DisplayByTitle", new { title=Server.UrlEncode(item.ProName)})">
+                    <a href="@Url.Action("Display", new {id = item.ProID})">
                         <img src="@Url.Action("GetImage","Products",new { id=item.ProID})" class="img-fluid pt-2" />
                         <input type="hidden" value="@item.ProID" class="PID" />
                         <h5 class="text-dark"><strong class="PName">@item.ProName</strong></h5>

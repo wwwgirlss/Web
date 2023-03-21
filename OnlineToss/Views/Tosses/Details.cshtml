@@ -51,17 +51,12 @@
                     @Html.DisplayNameFor(model => model.Description)
                 </strong>
 
-                <strong>
-                    @Html.DisplayNameFor(model => model.Description.ToString().Replace("\r\n", "<br>"))
-                </strong>
+                @*<p> @Html.DisplayFor(model => model.Description)</p>*@
 
-                @*<p>
-            @Html.DisplayFor(model => model.Description)
-        </p>*@
-                @*<div class="col-xs-12" style="margin-top:20px">
-            <p>@Html.Raw(Model.Description.ToString().Replace("\r\n", "<br>"))</p>
 
-        </div>*@
+                <div class="col-xs-12" style="margin-top:20px">
+                    <p>@Html.Raw(Model.Description.ToString().Replace("/r/n", "<br>"))</p>
+                </div>
 
             </div>
 

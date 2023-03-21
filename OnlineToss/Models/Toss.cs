@@ -31,7 +31,7 @@ namespace OnlineToss.Models
         public string Description { get; set; }
         [DisplayName("解 曰")]
         public byte[] TPhoto { get; set; }
-        [DisplayName("解 曰")]
+        [DisplayName("圖片路徑")]
         public string PhotoPath { get; set; }
     }
 }

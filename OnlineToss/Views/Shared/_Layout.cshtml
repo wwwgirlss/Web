@@ -1,9 +1,9 @@
 ﻿@{
     string text = "", action = "";
 
-    text = Session["member"] == null ? "登入" : "登出";
+    text = Session["member"] == null ? "會員登入" : "登出Logout";
     action = Session["member"] == null ? "Login" : "Logout";
-
+    
 }
 
 <!DOCTYPE html>
@@ -32,12 +32,12 @@
             margin-left: 2px;
         }*/
 
-        /*.Tbtn:hover {*/
-        /*text-decoration: none;*/
-        /*background-color: #000000;
-            transition: 0.4s;*/
-        /*color: black;*/
-        /*}*/
+        .OLbtn:hover {
+            text-decoration: none;
+            /*background-color: #000000;*/
+            transition: 0.4s;
+            color: white;
+        }
     </style>
 
 
@@ -55,40 +55,44 @@
                 </div>
             </div>
             @*----選單----*@
-            <div class="navbar-collapse collapse navbar-dark ">
-                <div class="icon-bar ml-1 ">@Html.ActionLink("ONLINE TOSS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</div>
-                <div class="Tbtn" data-bs-theme="dark">
-                    
-                        <p>@Html.ActionLink("登出", "Logout", "Home", null, new { @class = "nav-link btn btn-outline-dark text-light textbold" })</p>
-                    
-                    @*對應上面宣告登入的string text = "", action = "";*@
-                    @*<li class="nav-item ml-auto">
-                        @Html.ActionLink(text, action, "Home", new { area = "" }, new { @class = "nav-link btn btn-outline-dark text-light textbold" })
-                    </li>*@
+        <div class="navbar-collapse collapse navbar-dark ">
+            <div class="icon-bar ml-1 ">@Html.ActionLink("ONLINE TOSS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</div>
+            <div class="Tbtn text-right" data-bs-theme="dark">
+                <ul class="nav navbar-nav mr-auto w-100">
 
-
-                </div>
+                    @if (Session["member"] != null)
+                    {
+                        <p class="OLbtn">@Html.ActionLink("我的訂單", "MyOrderList", "MemberOrder", new { area = "" }, new { @class = "nav-link btn btn-outline-dark text-dark textbold" })</p>
+                    }
 
 
 
 
-                @*<ul class="nav navbar-nav mr-auto w-100">
-
-                        @if (Session["emp"] != null)
-                        {
-                            <li type="button" class="nav-item active">@Html.ActionLink("會員資料管理", "Index", "Members")</li>
-                            <li type="button" class="nav-item">@Html.ActionLink("員工資料管理", "Index", "Employees")</li>
-                            <li class="nav-item">@Html.ActionLink("產品資料管理", "Index", "Products")</li>
-                            <li class="nav-item">@Html.ActionLink("訂單資料管理", "Index", "Orders")</li>
-                            <li class="nav-item">@Html.ActionLink("產品類別管理", "Index", "Categories")</li>
-                            <li class="nav-item">@Html.ActionLink("送貨方式管理", "Index", "ShippingMethods")</li>
-                            <li class="nav-item ml-auto">@Html.ActionLink("登出", "Logout", "Login", null, new { @class = "nav-link btn btn-light text-dark" })</li>
-                            ("登出"--按鈕名稱, "Logout"--Action名稱, "Login"--controller)
-                        }
-
-                    </ul>*@
 
             </div>
+            @*<p>@Html.ActionLink("登出", "Logout", "Home", null, new { @class = "nav-link btn btn-outline-dark text-light textbold" })</p>
+        @*對應上面宣告登入的string text = "", action = "";*@
+            <p class="nav-item ml-auto">
+                @Html.ActionLink(text, action, "Home", new { area = "" }, new { @class = "nav-link btn btn-outline-dark text-light textbold" })
+            </p>
+            <p>@Html.ActionLink("加入會員", "Create", "Members", new { area = "" }, new { @class = "nav-link btn btn-outline-dark text-light textbold" })</p>
+
+                @*<ul class="nav navbar-nav mr-auto w-100">
+            @if (Session["emp"] != null)
+            {
+                <li type="button" class="nav-item active">@Html.ActionLink("會員資料管理", "Index", "Members")</li>
+                <li type="button" class="nav-item">@Html.ActionLink("員工資料管理", "Index", "Employees")</li>
+                <li class="nav-item">@Html.ActionLink("產品資料管理", "Index", "Products")</li>
+                <li class="nav-item">@Html.ActionLink("訂單資料管理", "Index", "Orders")</li>
+                <li class="nav-item">@Html.ActionLink("產品類別管理", "Index", "Categories")</li>
+                <li class="nav-item">@Html.ActionLink("送貨方式管理", "Index", "ShippingMethods")</li>
+                <li class="nav-item ml-auto">@Html.ActionLink("登出", "Logout", "Login", null, new { @class = "nav-link btn btn-light text-dark" })</li>
+                ("登出"--按鈕名稱, "Logout"--Action名稱, "Login"--controller)
+            }
+
+        </ul>
+
+        </div>
             @*<div class="navbar-collapse ml-3 logout text-right " style="border-radius: 10px ; ">
                     <p>@Html.ActionLink("登入", "Login", "Login", null, new { @class = "nav-link btn btn-dark text-light textbold" })</p>
                 </div>*@

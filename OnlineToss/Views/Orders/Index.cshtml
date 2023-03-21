@@ -10,7 +10,7 @@
 <p class="my-3 text-right">
     @Html.ActionLink("新增訂單", "Create")
 </p>
-<table class="table">
+<table class="table  table-striped table-hover ">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.OrderDate)
@@ -18,24 +18,31 @@
         <th>
             @Html.DisplayNameFor(model => model.ShipAdd)
         </th>
+
+
+        <th>
+            @*@Html.DisplayNameFor(model => model.Members.MemName)*@
+            訂購人
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.ShipName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShipDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Employees.EmpName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Members.MemName)
         </th>
         <th>
             @*@Html.DisplayNameFor(model => model.PaymentType.PayName)*@
             付款方式
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ShippingMethod.ShipName)
+            @*@Html.DisplayNameFor(model => model.ShippingMethod.ShipName)*@
+            運送方式
+        </th>
+
+
+        <th>
+            @*@Html.DisplayNameFor(model => model.Employees.EmpName)*@
+            負責員工
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShipDate)
         </th>
         <th></th>
     </tr>
@@ -51,12 +58,8 @@
         <td>
             @Html.DisplayFor(modelItem => item.ShipName)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShipDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Employees.EmpName)
-        </td>
+
+
         <td>
             @Html.DisplayFor(modelItem => item.Members.MemName)
         </td>
@@ -66,10 +69,17 @@
         <td>
             @Html.DisplayFor(modelItem => item.ShippingMethod.ShipName)
         </td>
+
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.OrderID }, new { @class = "btn btn-sm btn-info" }) |
-            @Html.ActionLink("Details", "Details", new { id=item.OrderID }, new { @class = "btn btn-sm btn-warning" }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.OrderID }, new { @class = "btn btn-sm btn-danger" })
+            @Html.DisplayFor(modelItem => item.Employees.EmpName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShipDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.OrderID }, new { @class = "btn btn-sm btn-info" })
+            @Html.ActionLink("Details", "Details", new { id = item.OrderID }, new { @class = "btn btn-sm btn-warning" })
+            @*@Html.ActionLink("Delete", "Delete", new { id = item.OrderID }, new { @class = "btn btn-sm btn-danger" })*@
         </td>
     </tr>
 }

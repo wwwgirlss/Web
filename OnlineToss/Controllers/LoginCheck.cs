@@ -25,7 +25,7 @@ namespace OnlineToss.Controllers
         void AdminLoginState(HttpContext context)
         {
 
-            if (context.Session["user"] == null)
+            if (context.Session["Memp"] == null)
             {
                 context.Response.Redirect("/HomeManager/Login");
             }

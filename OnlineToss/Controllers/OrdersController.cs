@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 
 namespace OnlineToss.Controllers
 {
-    [LoginCheck(id = 1)]
+    [LoginCheck]
     public class OrdersController : Controller
     {
         public testpro2Entities db = new testpro2Entities();

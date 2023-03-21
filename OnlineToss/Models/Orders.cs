@@ -51,6 +51,7 @@ namespace OnlineToss.Models
         public string ShipName { get; set; }
 
         [DisplayName("出貨日")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DataType(DataType.DateTime)]
         public Nullable<System.DateTime> ShipDate { get; set; }
 
