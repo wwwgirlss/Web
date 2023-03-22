@@ -26,7 +26,7 @@ namespace OnlineToss.Models
         [DisplayName("編號")]
         public string ShipID { get; set; }
 
-        [DisplayName("運送名稱")]
+        [DisplayName("物流名稱")]
         public string ShipName { get; set; }
 
         [DisplayName("運費")]

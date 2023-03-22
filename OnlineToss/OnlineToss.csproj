@@ -170,6 +170,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="TossLucky.html" />
     <Content Include="Toss_1to100.html" />
     <Content Include="SideBarJS.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />

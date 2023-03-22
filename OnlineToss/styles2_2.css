@@ -5,7 +5,7 @@
 
     }
 
-#sidebar {
+/*#sidebar {
     width: 450px;
     height: 100vh;
     background-color: #353131;
@@ -71,7 +71,7 @@
 .fa,
 .fa{
     float: right;
-}
+}*/
 
 @media (max-width:600px) {
     #sidebar {
@@ -101,12 +101,12 @@ body {
     font-family: fantasy,LiHei Pro
 }
 
-.container {
+/*.container {
     margin: 0 auto;
     width: 400px;
-    height: 400px;
+    height: 400px;*/
     /*background-image: url('https://img.itw01.com/images/2018/03/05/12/1222_vCU5o0_CSTMEAV.jpg!r800x0.jpg');*/
-    background-size: 100% 100%;
+    /*background-size: 100% 100%;
     position: relative;
     top: auto;
     left:430px;
@@ -161,4 +161,4 @@ body {
     cursor: pointer;
     left: 330px;
     color: black
-}
+}*/

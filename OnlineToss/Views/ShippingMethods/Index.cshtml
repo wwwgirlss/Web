@@ -10,7 +10,10 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
-    <tr>
+    <tr class="text-center">
+        <th>
+            @Html.DisplayNameFor(model => model.ShipID)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.ShipName)
         </th>
@@ -21,7 +24,11 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
+    <tr >
+        <td>
+            @Html.DisplayFor(modelItem => item.ShipID)
+        </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.ShipName)
         </td>
@@ -29,9 +36,9 @@
             @Html.DisplayFor(modelItem => item.Fee)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ShipID }, new { @class = "btn btn-sm btn-info" }) 
-            @Html.ActionLink("Details", "Details", new { id=item.ShipID }, new { @class = "btn btn-sm btn-warning" }) 
-            @Html.ActionLink("Delete", "Delete", new { id=item.ShipID }, new { @class = "btn btn-sm btn-danger" })
+            @Html.ActionLink("Edit", "Edit", new { id = item.ShipID }, new { @class = "btn btn-sm btn-info" })
+            @Html.ActionLink("Details", "Details", new { id = item.ShipID }, new { @class = "btn btn-sm btn-warning" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.ShipID }, new { @class = "btn btn-sm btn-danger" })
         </td>
     </tr>
 }
